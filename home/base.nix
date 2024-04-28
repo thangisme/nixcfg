@@ -37,6 +37,7 @@
     })
     bitwarden
     apostrophe
+    lazygit
   ];
 
   home.stateVersion = "23.11";
