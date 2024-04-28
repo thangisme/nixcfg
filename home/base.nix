@@ -19,7 +19,7 @@
     thunderbird
     #libsForQt5.polkit-kde-agent
     btop
-    unstable.foliate
+    koreader
     stremio
     qbittorrent
     nix-your-shell
@@ -35,6 +35,8 @@
       proprietaryCodecs = true;
       enableWidevine = false;
     })
+    bitwarden
+    apostrophe
   ];
 
   home.stateVersion = "23.11";
