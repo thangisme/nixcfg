@@ -6,7 +6,7 @@ let
       x = 10;
       y = 8;
     };
-    #window.opacity = 0.95;
+    window.opacity = 0.95;
     colors = {
       primary = {
         background = "#1e1e2e";
