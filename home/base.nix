@@ -28,7 +28,6 @@
     feh
     cava
     bat
-    unstable.hyprshot
     nyxt
     nixpkgs-fmt
     (vivaldi.override {

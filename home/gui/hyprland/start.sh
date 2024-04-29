@@ -9,7 +9,10 @@ nm-applet --indicator &
 waybar &
 
 # Notification
-mako & 
+mako &
 
 # Clipboard
 wl-paste --watch cliphist store &
+
+# Idle detection and lock screen
+hypridle &

@@ -1,4 +1,4 @@
-{ config, pkgs, ... } : {
+{ config, pkgs, unstable-pkgs, ... } : {
   home.packages = with pkgs; [
     mako
     libnotify
@@ -9,6 +9,9 @@
     wl-clipboard
     swayosd
     wlogout
+    unstable.hyprshot
+    unstable.hypridle
+    unstable.hyprlock
   ];
 
   home.file.".config/hypr" = {
