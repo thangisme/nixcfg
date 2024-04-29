@@ -1,7 +1,7 @@
 { config, pkgs, ... } : {
   imports = [
     ./cursor.nix
-    ./gtk.nix
+    ./gtk/base.nix
     ./qt.nix
     ./prefer-dark.nix
     ./catppuccin.nix
