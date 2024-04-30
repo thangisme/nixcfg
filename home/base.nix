@@ -37,6 +37,7 @@
     bitwarden
     apostrophe
     lazygit
+    calibre
   ];
 
   home.stateVersion = "23.11";
