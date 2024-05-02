@@ -77,6 +77,7 @@ tooltip {
 #custom-spotify,
 #custom-power,
 #custom-more,
+#backlight,
 
 #modbackground {
   background: #1e1e2e;
@@ -88,12 +89,9 @@ tooltip {
 }
 
 #backlight {
-  border-radius: 7px 0px 0px 7px;
-  background: #1e1e2e;
-  opacity: 1.0;
-  padding: 0px 7px;
-  margin-top: 5px;
-  margin-bottom: 6px;
+  border-radius: 7px;
+  color: #89dceb;
+  margin-right: 5px;
 }
 
 #pulseaudio {
