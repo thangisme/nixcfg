@@ -8,5 +8,6 @@
     ./btop.nix
     ./bat.nix
     ./cava.nix
+    ./zathura/base.nix
   ];
 }
