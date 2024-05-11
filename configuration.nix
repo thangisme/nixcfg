@@ -107,6 +107,12 @@
   # Polkit
   security.polkit.enable = true;
 
+  # Ignore pwoer button
+  services.logind.extraConfig = ''
+    # don’t shutdown when power button is short-pressed
+    HandlePowerKey=ignore
+  '';
+
   users.users.thang = {
     isNormalUser = true;
     description = "Quang Thang";
