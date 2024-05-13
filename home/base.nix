@@ -38,6 +38,8 @@
     apostrophe
     lazygit
     calibre
+    cloudflare-warp
+    tmux
   ];
 
   home.stateVersion = "23.11";
