@@ -40,6 +40,7 @@
     calibre
     cloudflare-warp
     tmux
+    onlyoffice-bin
   ];
 
   home.stateVersion = "23.11";
