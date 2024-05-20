@@ -1,3 +1,3 @@
 { config, ... } : {
-  home.file.".config/rofi/spotlight-dark.rasi".source = ./spotlight-dark.rasi;
+  home.file.".config/rofi/config.rasi".source = ./config.rasi;
 }

@@ -9,6 +9,7 @@
     wl-clipboard
     swayosd
     wlogout
+    batsignal
     unstable.hyprshot
     unstable.hypridle
     unstable.hyprlock
