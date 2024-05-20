@@ -139,6 +139,14 @@
     # Vulkan
     driSupport = true;
   };
+  
+  # Garbage collection
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
+
 
   # Help run non-nix excutable
   programs.nix-ld.enable = true;
