@@ -36,7 +36,7 @@
         "format": "{}",
         "max-length": 75,
 	"rewrite": {
-          "(.*) — Mozilla Firefox": "  $1",
+          "(.*) — Mozilla Firefox": "󰈹  $1",
 	  "": "~.~"
 	}
     },
@@ -45,7 +45,14 @@
         "disable-scroll": true,
         "format": "{icon}",
 	"persistent-workspaces": {"1" : [], "2" : [], "3" : []},
-        "format-icons": {"active" : "~"},
+        "format-icons": {
+          "1": "󰈹",
+          "2": "",
+          "3": "",
+          "8": "",
+          "9": "",
+          "active" : "~"
+          },
         "all-outputs": true,
         "on-click": "activate"
     },

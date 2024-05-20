@@ -7,6 +7,7 @@ let
       y = 8;
     };
     window.opacity = 0.95;
+    font.normal.family = "IosevkaTerm Nerd Font";
     colors = {
       primary = {
         background = "#1e1e2e";

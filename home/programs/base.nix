@@ -1,6 +1,6 @@
 { config, ... }: {
   imports = [
-    ./alacritty.nix
+    ./kitty.nix
     ./git.nix
     ./fish.nix
     ./neovim/base.nix

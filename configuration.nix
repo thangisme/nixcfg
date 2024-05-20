@@ -212,7 +212,7 @@
     fira-code
     fira-code-symbols
     font-awesome
-    (nerdfonts.override { fonts = [ "Iosevka" "DroidSansMono" ]; })
+    (nerdfonts.override { fonts = [ "Iosevka" "IosevkaTerm" "DroidSansMono" "NerdFontsSymbolsOnly" ]; })
   ];
 
 }
