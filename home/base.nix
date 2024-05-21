@@ -12,7 +12,8 @@
   home.packages = with pkgs; [
     firefox
     jetbrains.clion
-    vscode
+    unstable.vscode
+    direnv
     anki-bin
     goldendict-ng
     spicetify-cli
@@ -41,6 +42,7 @@
     cloudflare-warp
     tmux
     onlyoffice-bin
+
   ];
 
   home.stateVersion = "23.11";

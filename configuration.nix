@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nixpkgs-unstable, ... }:
 
 {
   imports =
@@ -101,7 +101,7 @@
   # XDG Portal
   xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-hyprland pkgs.xdg-desktop-portal-gtk ];
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
   # Polkit
@@ -195,6 +195,7 @@
   # Hyprland
   programs.hyprland = {
     enable = true;
+    package = pkgs.unstable.hyprland;
     xwayland.enable = true;
   };
 
