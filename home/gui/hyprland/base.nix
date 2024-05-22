@@ -13,6 +13,7 @@
     unstable.hyprshot
     unstable.hypridle
     unstable.hyprlock
+    unstable.hyprshade
   ];
 
   home.file.".config/hypr" = {
