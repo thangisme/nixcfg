@@ -16,7 +16,6 @@
     direnv
     anki-bin
     goldendict-ng
-    spicetify-cli
     thunderbird
     #libsForQt5.polkit-kde-agent
     btop
