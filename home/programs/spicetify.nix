@@ -6,8 +6,8 @@ let
   };
   spicetify-nix = (import flake-compat {
     src = builtins.fetchTarball {
-      url = "https://github.com/Gerg-L/spicetify-nix/archive/master.tar.gz";
-      sha256 = "0m2b4mhh21f2whjwyhy7b2g1m5qm1gysl2pn0jzrv5csph8cd8xr";
+      url = "https://github.com/Gerg-L/spicetify-nix/archive/3127c5663ec8697c3b2a6d291c916b2147312137.zip";
+      sha256 = "07ih7k19nhlayr88rfbg6cpv2d2g2qk41n962v3gakln73frn2rb";
     };
   }).defaultNix;
   spicePkgs = spicetify-nix.legacyPackages.${pkgs.system};
