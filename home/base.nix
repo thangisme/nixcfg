@@ -28,7 +28,6 @@
     feh
     cava
     bat
-    nyxt
     nixpkgs-fmt
     (vivaldi.override {
       proprietaryCodecs = true;
