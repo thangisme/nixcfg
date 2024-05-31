@@ -41,6 +41,7 @@
     cloudflare-warp
     tmux
     onlyoffice-bin
+    unstable.obsidian
 
   ];
 
