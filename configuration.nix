@@ -46,22 +46,15 @@
       wayland = true;
     };
 
-    #displayManager.sddm = {
-    #  enable = true;
-    #  wayland.enable = true;
-    #};
-    displayManager.defaultSession = "hyprland";
-
-    #desktopManager.plasma5.enable = true;
-
     excludePackages = with pkgs; [ xterm ];
 
   };
+  services.displayManager.defaultSession = "hyprland";
 
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "us";
-    xkbVariant = "";
+    variant = "";
   };
 
   i18n.inputMethod = {
@@ -97,7 +90,7 @@
   services.blueman.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput.enable = true;
+  services.libinput.enable = true;
 
   # XDG Portal
   xdg.portal = {
