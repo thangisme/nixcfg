@@ -233,6 +233,7 @@ tooltip {
   color: #cba6f7;
   border-radius: 3px;
   margin-right: 5px;
+  padding-right: 10px;
 }
 
 #custom-power {
