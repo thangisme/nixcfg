@@ -1,3 +1,3 @@
 { config, ... }: {
-  catppuccin.flavour = "mocha";
+  catppuccin.flavor = "mocha";
 }
