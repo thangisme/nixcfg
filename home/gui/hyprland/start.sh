@@ -17,6 +17,9 @@ wl-paste --watch cliphist store &
 # Battery monitor
 batsignal &
 
+# SwayOSD
+swayosd-server &
+
 # Screen shader
 dbus-update-activation-environment --systemd HYPRLAND_INSTANCE_SIGNATURE
 hyprshade auto
