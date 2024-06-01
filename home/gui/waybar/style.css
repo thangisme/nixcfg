@@ -40,13 +40,13 @@ tooltip {
 #workspaces button.focused {
   color: #707880;
   background: #eba0ac;
-  border-radius: 7px;
+  border-radius: 3px;
 }
 
 #workspaces button.urgent {
   color: #11111b;
   background: #f28fad;
-  border-radius: 7px;
+  border-radius: 3px;
   opacity: 0.5;
 }
 
@@ -89,7 +89,7 @@ tooltip {
 }
 
 #backlight {
-  border-radius: 7px;
+  border-radius: 3px;
   color: #89dceb;
   margin-right: 5px;
 }
@@ -99,7 +99,7 @@ tooltip {
   border-radius: 0px;
   margin-right: 5px;
   /*border-left: 0px;*/
-  border-radius: 7px;
+  border-radius: 3px;
   /*border-right: 0px;*/
 }
 
@@ -123,13 +123,13 @@ tooltip {
 }
 
 #tray {
-  border-radius: 7px;
+  border-radius: 3px;
   margin-right: 5px;
 }
 
 #workspaces {
   background: #1e1e2e;
-  border-radius: 7px;
+  border-radius: 3px;
   margin-left: 5px;
   padding-right: 5px;
   padding-left: 5px;
@@ -143,7 +143,7 @@ tooltip {
 /* } */
 
 #window {
-  border-radius: 7px;
+  border-radius: 3px;
   margin-left: 10px;
   margin-right: 10px;
   opacity: 1.0;
@@ -151,7 +151,7 @@ tooltip {
 
 #clock {
   color: #fab387;
-  border-radius: 7px;
+  border-radius: 3px;
   /* margin-left: 10px; */
   margin-right: 5px;
   /* margin-left: 5px; */
@@ -163,7 +163,7 @@ tooltip {
 
 #network {
   color: #f9e2af;
-  border-radius: 7px;
+  border-radius: 3px;
   margin-right: 5px;
   border-left: 0px;
   border-right: 0px;
@@ -172,27 +172,27 @@ tooltip {
 
 #bluetooth {
   color: #89b4fa;
-  border-radius: 7px;
+  border-radius: 3px;
   margin-right: 5px;
   opacity: 1.0;
 }
 
 #battery {
   color: #a6e3a1;
-  border-radius: 7px;
+  border-radius: 3px;
   margin-right: 5px;
   border-left: 0px;
 }
 
 #custom-spotify {
-  border-radius: 7px;
+  border-radius: 3px;
   margin-right: 5px;
   border-right: 0px;
   opacity: 1.0;
 }
 
 #mpris {
-  border-radius: 7px;
+  border-radius: 3px;
   margin-right: 45px;
   border-right: 0px;
 }
@@ -202,20 +202,20 @@ tooltip {
 }
 
 #mpd {
-  border-radius: 7px;
+  border-radius: 3px;
   margin-right: 5px;
   border-right: 0px;
 }
 
 #custom-pacman {
   color: #ff7a91;
-  border-radius: 7px;
+  border-radius: 3px;
   margin-right: 5px;
 }
 
 #custom-pomodoro {
   color: #cdd6e1;
-  border-radius: 7px;
+  border-radius: 3px;
   margin-right: 5px;
 }
 
@@ -231,13 +231,13 @@ tooltip {
 
 #custom-more {
   color: #cba6f7;
-  border-radius: 7px;
+  border-radius: 3px;
   margin-right: 5px;
 }
 
 #custom-power {
   color: #f38ba8;
-  border-radius: 7px;
+  border-radius: 3px;
   margin-right: 10px;
   padding-right: 12px;
 }
