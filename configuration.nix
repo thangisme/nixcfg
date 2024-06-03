@@ -197,6 +197,8 @@
   services.tailscale.enable = true;
 
   services.flatpak.enable = true;
+  
+  programs.steam.enable = true;
 
   # Fonts
   fonts.packages = with pkgs; [
