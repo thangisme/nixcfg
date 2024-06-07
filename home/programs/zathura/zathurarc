@@ -41,3 +41,5 @@ set recolor-lightcolor          "#fdf6e3" # base3
 set recolor-darkcolor           "#441100" # base00
 set recolor                     "true"
 set recolor-keephue             true      # keep original color
+
+set selection-clipboard clipboard
