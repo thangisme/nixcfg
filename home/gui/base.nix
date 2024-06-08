@@ -7,5 +7,6 @@
     ./waybar/base.nix
     ./rofi/base.nix
     ./mako/base.nix
+    ./polkit.nix
   ];
 }
