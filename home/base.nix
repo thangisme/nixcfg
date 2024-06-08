@@ -29,10 +29,7 @@
     cava
     bat
     nixpkgs-fmt
-    (vivaldi.override {
-      proprietaryCodecs = true;
-      enableWidevine = false;
-    })
+    ungoogled-chromium
     bitwarden
     apostrophe
     lazygit
