@@ -1,6 +1,6 @@
 { config, pkgs, unstable-pkgs, ... } : {
   home.packages = with pkgs; [
-    mako
+    swaynotificationcenter
     libnotify
     swww
     rofi-wayland

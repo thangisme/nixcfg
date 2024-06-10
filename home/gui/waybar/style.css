@@ -76,6 +76,7 @@ tooltip {
 #memory,
 #custom-spotify,
 #custom-power,
+#custom-notification,
 #custom-more,
 #backlight,
 
@@ -236,9 +237,17 @@ tooltip {
   padding-right: 10px;
 }
 
+#custom-notification {
+  color: #f5e0dc;
+  border-radius: 3px;
+  margin-right: 5px;
+  padding-right: 12px;
+}
+
 #custom-power {
   color: #f38ba8;
   border-radius: 3px;
   margin-right: 10px;
   padding-right: 12px;
 }
+

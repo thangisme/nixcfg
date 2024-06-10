@@ -6,7 +6,7 @@
     ./hyprland/base.nix
     ./waybar/base.nix
     ./rofi/base.nix
-    ./mako/base.nix
+    ./swaync/base.nix
     ./polkit.nix
   ];
 }

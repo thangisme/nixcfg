@@ -1,5 +1,5 @@
 { config, pkgs, ... } : {
-  home.file.".config/mako" = {
+  home.file.".config/swaync" = {
     source = ./.;
     recursive = true;
   };
