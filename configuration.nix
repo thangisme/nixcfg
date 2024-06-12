@@ -111,7 +111,7 @@
     isNormalUser = true;
     description = "Quang Thang";
     shell = pkgs.fish;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "adbusers" ];
     packages = with pkgs; [
 
     ];
@@ -199,6 +199,8 @@
   services.flatpak.enable = true;
   
   programs.steam.enable = true;
+
+  programs.adb.enable = true;
 
   # Fonts
   fonts.packages = with pkgs; [
