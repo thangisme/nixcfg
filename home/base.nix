@@ -31,14 +31,13 @@
     nixpkgs-fmt
     ungoogled-chromium
     bitwarden
-    apostrophe
     lazygit
     calibre
     cloudflare-warp
     tmux
     onlyoffice-bin
     unstable.obsidian
-
+    zed-editor
   ];
 
   home.stateVersion = "23.11";
