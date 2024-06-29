@@ -19,7 +19,6 @@
     thunderbird
     #libsForQt5.polkit-kde-agent
     btop
-    koreader
     stremio
     qbittorrent
     nix-your-shell
@@ -38,6 +37,7 @@
     onlyoffice-bin
     unstable.obsidian
     zed-editor
+    obs-studio
   ];
 
   home.stateVersion = "23.11";
