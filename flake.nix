@@ -43,7 +43,8 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-
+          home-manager.backupFileExtension = "bak";
+          
           home-manager.users.thang.imports = [
             ./home/base.nix
             catppuccin.homeManagerModules.catppuccin
