@@ -1,0 +1,21 @@
+plugin:
+  git_repositories:
+    enable: false
+  gitmoji:
+    enable: false
+  sway_windows:
+    enable: false
+  brave_bookmarks:
+    enable: false
+  brave_history:
+    enable: false
+  brave_progressive_web_apps:
+    enable: false
+  firefox_bookmarks:
+    enable: false
+  firefox_history:
+    enable: false
+color:
+  background: "#11111b"
+  text: "#cdd6f4"
+  surface: "#b4befe"
