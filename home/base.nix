@@ -38,6 +38,8 @@
     unstable.obsidian
     zed-editor
     obs-studio
+    unstable.centerpiece
+    unstable.lutris
   ];
 
   home.stateVersion = "23.11";
