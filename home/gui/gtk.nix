@@ -1,20 +1,11 @@
-{ config, ... }: {
+{ config, pkgs,... }: {
   gtk = {
     enable = true;
-    catppuccin = {
-      enable = true;
-      accent = "lavender";
-      flavor = "mocha";
-      gnomeShellTheme = true;
-      icon = {
-        enable = true;
-        accent = "lavender";
-        flavor = "mocha";
-      };
-      cursor = {
-        enable = true;
-        accent = "lavender";
-        flavor = "mocha";
+    theme = {
+      name = "catppuccin-mocha-lavender-standard+default";
+      package = pkgs.catppuccin-gtk.override {
+        variant = "mocha";
+        accents = [ "lavender" ];
       };
     };
   };
