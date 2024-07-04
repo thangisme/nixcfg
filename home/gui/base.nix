@@ -8,5 +8,6 @@
     ./rofi/base.nix
     ./swaync/base.nix
     ./polkit.nix
+    ./catppuccin.nix
   ];
 }

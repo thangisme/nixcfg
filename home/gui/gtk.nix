@@ -1,4 +1,4 @@
-{ config, pkgs,... }: {
+{ config, pkgs, ... }: {
   gtk = {
     enable = true;
     theme = {
@@ -6,6 +6,13 @@
       package = pkgs.catppuccin-gtk.override {
         variant = "mocha";
         accents = [ "lavender" ];
+      };
+    };
+    catppuccin = {
+      icon = {
+        enable = true;
+        accent = "lavender";
+        flavor = "mocha";
       };
     };
   };
