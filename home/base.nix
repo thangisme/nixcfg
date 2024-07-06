@@ -40,6 +40,7 @@
     obs-studio
     unstable.centerpiece
     unstable.lutris
+    rustup
   ];
 
   home.stateVersion = "23.11";
