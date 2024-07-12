@@ -10,7 +10,7 @@
   home.homeDirectory = "/home/thang";
   xdg.enable = true;
   home.packages = with pkgs; [
-    firefox
+    unstable.firefox
     jetbrains.clion
     unstable.vscode
     direnv
@@ -36,7 +36,7 @@
     tmux
     onlyoffice-bin
     unstable.obsidian
-    zed-editor
+    unstable.zed-editor
     obs-studio
     unstable.centerpiece
     unstable.lutris
