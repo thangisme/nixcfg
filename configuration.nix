@@ -63,7 +63,7 @@
       fcitx5-gtk
       libsForQt5.fcitx5-qt
       fcitx5-configtool
-      (unstable.fcitx5-bamboo.override (prevAttrs: builtins.intersectAttrs prevAttrs pkgs))
+      fcitx5-bamboo
     ];
   };
 

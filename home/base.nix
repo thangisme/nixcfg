@@ -41,6 +41,7 @@
     unstable.centerpiece
     unstable.lutris
     rustup
+    masterpdfeditor4
   ];
 
   home.stateVersion = "23.11";
