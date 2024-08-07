@@ -151,7 +151,7 @@
   environment.systemPackages = with pkgs; [
     git
     cron
-    neofetch
+    fastfetch
     neovim
     wget
     python3
