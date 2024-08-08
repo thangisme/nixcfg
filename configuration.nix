@@ -14,6 +14,10 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.configurationLimit = 15;
 
+  # Optimize boot time 
+  systemd.network.wait-online.enable = false;
+  boot.initrd.systemd.network.wait-online.enable = false;
+
   networking.hostName = "matrix";
 
   # Enable networking
