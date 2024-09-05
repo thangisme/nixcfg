@@ -10,5 +10,6 @@
     ./cava.nix
     ./zathura/base.nix
     ./centerpiece/base.nix
+    ./helix.nix
   ];
 }

@@ -1,13 +1,20 @@
-{ config, pkgs, nixpkgs-unstable, ... }:
+{
+  config,
+  pkgs,
+  nixpkgs-unstable,
+  ...
+}:
 
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -115,7 +122,11 @@
     isNormalUser = true;
     description = "Quang Thang";
     shell = pkgs.fish;
-    extraGroups = [ "networkmanager" "wheel" "adbusers" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "adbusers"
+    ];
     packages = with pkgs; [
 
     ];
@@ -137,14 +148,13 @@
     # Vulkan
     driSupport = true;
   };
-  
+
   # Garbage collection
   nix.gc = {
     automatic = true;
-    dates = "weekly";
+    dates = "monthly";
     options = "--delete-older-than 30d";
   };
-
 
   # Help run non-nix excutable
   programs.nix-ld.enable = true;
@@ -164,17 +174,6 @@
 
   # Power management
   powerManagement.enable = true;
-  services.auto-cpufreq.enable = true;
-  services.auto-cpufreq.settings = {
-    battery = {
-      governor = "powersave";
-      turbo = "never";
-    };
-    charger = {
-      governor = "performance";
-      turbo = "auto";
-    };
-  };
 
   system.stateVersion = "23.11";
 
@@ -201,7 +200,7 @@
   services.tailscale.enable = true;
 
   services.flatpak.enable = true;
-  
+
   programs.steam.enable = true;
 
   programs.adb.enable = true;
@@ -216,7 +215,29 @@
     fira-code
     fira-code-symbols
     font-awesome
-    (nerdfonts.override { fonts = [ "Iosevka" "IosevkaTerm" "DroidSansMono" "JetBrainsMono" "NerdFontsSymbolsOnly" ]; })
+    (nerdfonts.override {
+      fonts = [
+        "Iosevka"
+        "IosevkaTerm"
+        "DroidSansMono"
+        "JetBrainsMono"
+        "NerdFontsSymbolsOnly"
+      ];
+    })
   ];
+
+  programs.fuse.userAllowOther = true;
+  systemd.services.onr2-mount = {
+    enable = true;
+    description = "Mount Rclone Remote";
+    wants = [ "network-online.target" ];
+    after = [ "network-online.target" ];
+    serviceConfig = {
+      ExecStart = "${pkgs.rclone}/bin/rclone mount onr2:onthithpt /home/thang/onr2 --config /home/thang/.config/rclone/rclone.conf --allow-other --dir-cache-time 1h --vfs-cache-mode full";
+      ExecStop = "${pkgs.coreutils}/bin/fusermount -u /home/thang/onr2";
+      Restart = "on-failure";
+    };
+    wantedBy = [ "multi-user.target" ];
+  };
 
 }

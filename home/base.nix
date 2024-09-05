@@ -1,4 +1,9 @@
-{ config, pkgs, unstable-pkgs, ... }:
+{
+  config,
+  pkgs,
+  unstable-pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -42,7 +47,14 @@
     unstable.lutris
     rustup
     masterpdfeditor4
+    rclone
+    xournalpp
+    xplr
   ];
+
+  home.sessionVariables = {
+    EDITOR = "hx";
+  };
 
   home.stateVersion = "23.11";
 

@@ -8,7 +8,6 @@
           mode = "no-cursor";
         };
         extraConfig = ''
-          background_opacity 0.95
           window_padding_width 4 8
         '';
     };
