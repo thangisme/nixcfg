@@ -111,6 +111,7 @@
 
   # Polkit
   security.polkit.enable = true;
+  services.gnome.gnome-keyring.enable = true;
 
   # Ignore pwoer button
   services.logind.extraConfig = ''

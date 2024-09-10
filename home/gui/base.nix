@@ -1,4 +1,5 @@
-{ config, pkgs, ... } : {
+{ config, pkgs, ... }:
+{
   imports = [
     ./gtk.nix
     ./qt.nix
@@ -7,7 +8,6 @@
     ./waybar/base.nix
     ./rofi/base.nix
     ./swaync/base.nix
-    ./polkit.nix
     ./catppuccin.nix
   ];
 }
