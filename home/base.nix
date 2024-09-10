@@ -50,6 +50,7 @@
     rclone
     xournalpp
     xplr
+    jetbrains.idea-ultimate
   ];
 
   home.sessionVariables = {
