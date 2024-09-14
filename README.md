@@ -1,6 +1,5 @@
 # Simple NixOS configuration
 
-
 | Component         | Version/Name            |
 | ----------------- | ----------------------- |
 | Shell             | Fish                    |
@@ -8,13 +7,13 @@
 | Bar               | Waybar                  |
 | Notification      | Mako                    |
 | Launcher          | Rofi-Wayland            |
-| Editor            | Nvim + VSCode           |
+| Editor            | Helix + VSCode          |
 | Terminal          | Kitty                   |
 | OSD               | SwayOSD                 |
 | Night Gamma       | HyprShade               |
-| Fetch Utility     | Neofetch                |
-| Theme             | Catppuccin Mocha    |
-| Player            | Spotify                 |
+| Fetch Utility     | fastfetch               |
+| Theme             | Catppuccin Mocha        |
+| Player            | Spotify, Cider          |
 | File Browser      | Thunar                  |
 | Internet Browser  | Firefox                 |
 | Document reader   | Zathura                 |
@@ -30,10 +29,9 @@
 | Display Manager   | SDDM                    |
 | Fonts             | IosevkaTerm, Fira Code  |
 
-
-
 ## Screenshots
-![Browser](images/2024-06-01-164555_hyprshot.png)
-![](images/2024-06-01-165543_hyprshot.png)
-![](images/2024-06-01-165737_hyprshot.png)
-![Terminal](images/2024-06-01-165152_hyprshot.png)
+
+![](images/2024-09-14-222859_hyprshot.png)
+![](images/2024-09-14-223119_hyprshot.png)
+![](images/2024-09-14-223026_hyprshot.png)
+![](images/2024-09-14-223010_hyprshot.png)
