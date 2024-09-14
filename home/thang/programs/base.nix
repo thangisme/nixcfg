@@ -9,7 +9,6 @@
     ./bat.nix
     ./cava.nix
     ./zathura/base.nix
-    ./centerpiece/base.nix
     ./helix.nix
     ./firefox.nix
     ./direnv.nix

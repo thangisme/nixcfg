@@ -42,7 +42,6 @@
     unstable.obsidian
     unstable.zed-editor
     obs-studio
-    unstable.centerpiece
     unstable.lutris
     masterpdfeditor4
     rclone

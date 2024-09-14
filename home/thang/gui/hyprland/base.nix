@@ -3,7 +3,7 @@
     swaynotificationcenter
     libnotify
     swww
-    rofi-wayland
+    unstable.rofi-wayland
     networkmanagerapplet
     cliphist
     wl-clipboard
