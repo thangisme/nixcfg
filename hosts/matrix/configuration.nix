@@ -61,6 +61,9 @@
     ];
   };
 
+  services.gvfs.enable = true; # Mount, trash, and other functionalities
+  services.tumbler.enable = true; # Thumbnail support for images
+
   programs.file-roller.enable = true;
   programs.steam.enable = true;
   programs.adb.enable = true;
