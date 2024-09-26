@@ -51,38 +51,6 @@
     jetbrains.datagrip
   ];
 
-  xdg.mimeApps = {
-    enable = true;
-    defaultApplications = {
-      # Web browser defaults
-      "text/html" = "firefox.desktop";
-      "x-scheme-handler/http" = "firefox.desktop";
-      "x-scheme-handler/https" = "firefox.desktop";
-      "x-scheme-handler/about" = "firefox.desktop";
-      "x-scheme-handler/unknown" = "firefox.desktop";
-
-      # PDF and epub viewer default
-      "application/pdf" = "zathura.desktop";
-      "application/epub+zip" = "zathura.desktop";
-
-      # Image viewer default
-      "image/png" = "feh.desktop";
-      "image/jpeg" = "feh.desktop";
-      "image/gif" = "feh.desktop";
-
-      # Video player
-      "video/mp4" = "mpv.desktop";
-
-      # Text and code files default
-      "text/plain" = "Helix.desktop";
-      "text/x-c++src" = "Helix.desktop";
-      "text/x-python" = "Helix.desktop";
-      "text/x-shellscript" = "Helix.desktop";
-      "text/x-java" = "Helix.desktop";
-      "text/x-c" = "Helix.desktop";
-    };
-  };
-
   home.sessionVariables = {
     EDITOR = "hx";
     VISUAL = "hx";
