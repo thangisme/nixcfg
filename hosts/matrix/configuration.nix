@@ -28,11 +28,17 @@
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
 
-  # Ignore power button
-  services.logind.extraConfig = ''
-    # don’t shutdown when power button is short-pressed
-    HandlePowerKey=ignore
-  '';
+  services.logind = {
+    lidSwitch = "suspend-then-hibernate";
+    extraConfig = ''
+      HandlePowerKey=suspend-then-hibernate
+      IdleAction=suspend-then-hibernate
+      IdleActionSec=2m
+      # don’t shutdown when power button is short-pressed
+      HandlePowerKey=ignore
+    '';
+  };
+  systemd.sleep.extraConfig = "HibernateDelaySec=2h";
 
   # Default shell
   users.users.thang = {
@@ -83,4 +89,10 @@
     };
     wantedBy = [ "multi-user.target" ];
   };
+
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 8080 ];
+  };
+
 }
