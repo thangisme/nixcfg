@@ -17,6 +17,7 @@
 
   };
   services.displayManager.defaultSession = "hyprland";
+  services.desktopManager.plasma6.enable = true;
 
   # XDG Portal
   xdg.portal = {
