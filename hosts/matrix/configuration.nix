@@ -78,6 +78,7 @@
   programs.adb.enable = true;
   services.tailscale.enable = true;
   services.flatpak.enable = true;
+  services.cloudflare-warp.enable = true;
 
   programs.fuse.userAllowOther = true;
   systemd.services.onr2-mount = {
