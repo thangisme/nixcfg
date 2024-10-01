@@ -1,10 +1,15 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 {
   imports = [ ./hardware-configuration.nix ];
 
   networking.hostName = "matrix";
 
-  nix.binaryCaches = [ "https://aseipp-nix-cache.global.ssl.fastly.net" ];
+  nix.settings.substituters = lib.mkForce [ "https://aseipp-nix-cache.global.ssl.fastly.net" ];
 
   # Desktop Environment.
   services.xserver = {
