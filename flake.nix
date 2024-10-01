@@ -2,67 +2,52 @@
   description = "ThangQT's NixOS configuration";
 
   inputs = {
-    nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixos-unstable";
-    };
-    nixpkgs-unstable = {
-      url = "github:nixos/nixpkgs/nixos-unstable";
-    };
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    catppuccin = {
-      url = "github:catppuccin/nix";
-    };
+    catppuccin.url = "github:catppuccin/nix";
+
+    # ags.url = "github:aylur/ags/v2";
   };
 
   outputs =
     {
       self,
       nixpkgs,
-      nixpkgs-unstable,
       home-manager,
-      catppuccin,
       ...
-    }:
+    }@inputs:
+    let
+      system = "x86_64-linux";
+    in
     {
-      nixosConfigurations = {
-        matrix = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            (
-              { config, pkgs, ... }:
-              {
-                nixpkgs.overlays = [
-                  (final: prev: {
-                    unstable = import nixpkgs-unstable {
-                      system = "x86_64-linux";
-                      config = {
-                        allowUnfree = true;
-                      };
-                    };
-                  })
-                ];
-              }
-            )
-            ./modules/common.nix
-            ./modules/common_non_server.nix
-            ./hosts/matrix/configuration.nix
-            catppuccin.nixosModules.catppuccin
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "bak";
-
-              home-manager.users.thang.imports = [
-                ./home/thang/base.nix
-                catppuccin.homeManagerModules.catppuccin
-              ];
-            }
-          ];
+      nixosConfigurations.matrix = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = {
+          inherit inputs;
         };
+        modules = [
+          ./modules/common.nix
+          ./modules/common_non_server.nix
+          ./hosts/matrix/configuration.nix
+          inputs.catppuccin.nixosModules.catppuccin
+        ];
+      };
+
+      homeConfigurations."thang@matrix" = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs { inherit system; };
+
+        extraSpecialArgs = {
+          inherit inputs;
+        };
+
+        modules = [
+          # inputs.ags.homeManagerModules.default
+          inputs.catppuccin.homeManagerModules.catppuccin
+          ./home/thang/base.nix
+        ];
       };
     };
 }

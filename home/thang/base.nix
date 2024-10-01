@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  unstable-pkgs,
   ...
 }:
 
@@ -11,12 +10,13 @@
     ./gui/base.nix
   ];
 
+  nixpkgs.config.allowUnfreePredicate = (_: true);
+
   home.username = "thang";
   home.homeDirectory = "/home/thang";
   xdg.enable = true;
   home.packages = with pkgs; [
-    unstable.firefox
-    unstable.vscode
+    vscode
     anki-bin
     goldendict-ng
     thunderbird
@@ -33,16 +33,15 @@
     bitwarden
     lazygit
     calibre
-    cloudflare-warp
     tmux
     fastfetch
     blueman
     pavucontrol
     onlyoffice-bin
-    unstable.obsidian
-    unstable.zed-editor
+    obsidian
+    zed-editor
     obs-studio
-    unstable.lutris
+    lutris
     masterpdfeditor4
     rclone
     xournalpp

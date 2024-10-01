@@ -1,19 +1,19 @@
-{ config, pkgs, unstable-pkgs, ... }: {
+{ config, pkgs,  ... }: {
   home.packages = with pkgs; [
     swaynotificationcenter
     libnotify
     swww
-    unstable.rofi-wayland
+    rofi-wayland
     networkmanagerapplet
     cliphist
     wl-clipboard
     swayosd
     wlogout
     batsignal
-    unstable.hyprshot
-    unstable.hypridle
-    unstable.hyprlock
-    unstable.hyprshade
+    hyprshot
+    hypridle
+    hyprlock
+    hyprshade
   ];
 
   home.file.".config/hypr" = {

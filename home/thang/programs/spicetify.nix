@@ -1,4 +1,4 @@
-{ config, pkgs, unstable-pkgs, ... }:
+{ config, pkgs,  ... }:
 let
   flake-compat = builtins.fetchTarball {
     url = "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
@@ -17,7 +17,7 @@ in
   programs.spicetify = {
     enable = true;
     theme = spicePkgs.themes.catppuccin;
-    spicetifyPackage = pkgs.unstable.spicetify-cli;
+    spicetifyPackage = pkgs.spicetify-cli;
     colorScheme = "mocha";
     enabledExtensions = with spicePkgs.extensions; [
       fullScreen

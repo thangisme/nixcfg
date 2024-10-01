@@ -9,5 +9,6 @@
     ./rofi/base.nix
     ./swaync/base.nix
     ./catppuccin.nix
+    ./ags/base.nix
   ];
 }

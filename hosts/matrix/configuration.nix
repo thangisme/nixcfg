@@ -4,6 +4,8 @@
 
   networking.hostName = "matrix";
 
+  nix.binaryCaches = [ "https://aseipp-nix-cache.global.ssl.fastly.net" ];
+
   # Desktop Environment.
   services.xserver = {
     enable = true;
@@ -16,8 +18,8 @@
     excludePackages = with pkgs; [ xterm ];
 
   };
+  security.pam.services.sddm.enableGnomeKeyring = true;
   services.displayManager.defaultSession = "hyprland";
-  services.desktopManager.plasma6.enable = true;
 
   # XDG Portal
   xdg.portal = {
@@ -54,7 +56,7 @@
   # Hyprland
   programs.hyprland = {
     enable = true;
-    package = pkgs.unstable.hyprland;
+    package = pkgs.hyprland;
     xwayland.enable = true;
   };
 
