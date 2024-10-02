@@ -9,8 +9,6 @@
 
   networking.hostName = "matrix";
 
-  nix.settings.substituters = lib.mkForce [ "https://aseipp-nix-cache.global.ssl.fastly.net" ];
-
   # Desktop Environment.
   services.xserver = {
     enable = true;
