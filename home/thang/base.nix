@@ -48,6 +48,7 @@
     xplr
     jetbrains.idea-ultimate
     jetbrains.datagrip
+    zellij
   ];
 
   home.sessionVariables = {
