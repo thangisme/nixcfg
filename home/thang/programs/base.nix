@@ -12,5 +12,6 @@
     ./helix.nix
     ./firefox.nix
     ./direnv.nix
+    ./zellij/base.nix
   ];
 }

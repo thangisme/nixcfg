@@ -36,6 +36,7 @@
     "flakes"
   ];
 
+  nix.optimise.automatic = true;
   # Garbage collection
   nix.gc = {
     automatic = true;
