@@ -1,7 +1,12 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   programs.fish = {
     enable = true;
-    interactiveShellInit = "set fish_greeting; nix-your-shell fish | source";
+    interactiveShellInit = "
+      set fish_greeting; 
+      nix-your-shell fish | source; 
+      zoxide init fish | source
+    ";
     catppuccin.enable = true;
     plugins = [
       {

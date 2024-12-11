@@ -57,6 +57,23 @@
 
   system.stateVersion = "23.11";
 
+  environment.systemPackages = with pkgs; [
+    zoxide
+    ungoogled-chromium
+    xplr
+    rclone
+    fastfetch
+    thunderbird
+    btop
+    mpv
+    zathura
+    feh
+    cava
+    bat
+    lazygit
+    onlyoffice-bin
+  ];
+
   # Fish
   programs.fish.enable = true;
 

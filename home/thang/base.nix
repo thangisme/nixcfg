@@ -19,32 +19,17 @@
     vscode
     anki-bin
     goldendict-ng
-    thunderbird
-    btop
     stremio
     qbittorrent
     nix-your-shell
-    zathura
-    mpv
-    feh
-    cava
-    bat
-    ungoogled-chromium
     bitwarden
-    lazygit
     calibre
-    tmux
-    fastfetch
     blueman
     pavucontrol
-    onlyoffice-bin
     obsidian
     zed-editor
     obs-studio
     masterpdfeditor4
-    rclone
-    xournalpp
-    xplr
   ];
 
   home.sessionVariables = {
