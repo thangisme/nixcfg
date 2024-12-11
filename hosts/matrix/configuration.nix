@@ -7,6 +7,10 @@
 {
   imports = [ ./hardware-configuration.nix ];
 
+  boot.loader.systemd-boot.windows = {
+    "11".efiDeviceHandle = "HD0b";
+  };
+
   networking.hostName = "matrix";
 
   # Desktop Environment.
@@ -63,6 +67,10 @@
     xwayland.enable = true;
   };
 
+  programs.niri.enable = true;
+
+  programs.xwayland.enable = lib.mkForce true;
+
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   programs.thunar = {
@@ -77,7 +85,7 @@
   services.tumbler.enable = true; # Thumbnail support for images
 
   programs.file-roller.enable = true;
-  programs.steam.enable = true;
+  # programs.steam.enable = true;
   programs.adb.enable = true;
   services.tailscale.enable = true;
   services.flatpak.enable = true;
@@ -85,7 +93,7 @@
 
   programs.fuse.userAllowOther = true;
   systemd.services.onr2-mount = {
-    enable = true;
+    enable = false;
     description = "Mount Rclone Remote";
     wants = [ "network-online.target" ];
     after = [ "network-online.target" ];

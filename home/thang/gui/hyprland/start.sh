@@ -27,5 +27,5 @@ hyprshade auto
 # Idle detection and lock screen
 hypridle &
 
-# Start Gnome polkit
-systemctl --user start polkit-gnome
+# Start Hyprpolkit
+systemctl --user start hyprpolkitagent

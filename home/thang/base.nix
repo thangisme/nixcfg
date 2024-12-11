@@ -41,13 +41,10 @@
     obsidian
     zed-editor
     obs-studio
-    lutris
     masterpdfeditor4
     rclone
     xournalpp
     xplr
-    jetbrains.idea-ultimate
-    jetbrains.datagrip
   ];
 
   home.sessionVariables = {

@@ -6,10 +6,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.configurationLimit = 5;
 
-  # Optimize boot time
-  systemd.network.wait-online.enable = false;
-  boot.initrd.systemd.network.wait-online.enable = false;
-
   # Enable networking
   networking.networkmanager.enable = true;
 

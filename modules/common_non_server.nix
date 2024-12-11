@@ -52,20 +52,14 @@
   fonts.packages = with pkgs; [
     corefonts
     noto-fonts
-    noto-fonts-cjk
+    noto-fonts-cjk-sans
     noto-fonts-emoji
     liberation_ttf
     fira-code
     fira-code-symbols
     font-awesome
-    (nerdfonts.override {
-      fonts = [
-        "Iosevka"
-        "IosevkaTerm"
-        "DroidSansMono"
-        "JetBrainsMono"
-        "NerdFontsSymbolsOnly"
-      ];
-    })
+    nerd-fonts.iosevka
+    nerd-fonts.iosevka-term
+    nerd-fonts.jetbrains-mono
   ];
 }

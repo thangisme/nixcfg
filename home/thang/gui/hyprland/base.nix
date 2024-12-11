@@ -1,4 +1,5 @@
-{ config, pkgs,  ... }: {
+{ config, pkgs, ... }:
+{
   home.packages = with pkgs; [
     swaynotificationcenter
     libnotify
@@ -14,6 +15,7 @@
     hypridle
     hyprlock
     hyprshade
+    hyprpolkitagent
   ];
 
   home.file.".config/hypr" = {
