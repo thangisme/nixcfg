@@ -72,6 +72,8 @@
     bat
     lazygit
     onlyoffice-bin
+    ffmpeg
+    yt-dlp
   ];
 
   # Fish
@@ -127,4 +129,8 @@
     allowedTCPPorts = [ 8080 ];
   };
 
+  services.mysql = {
+    enable = true;
+    package = pkgs.mariadb;
+  };
 }
