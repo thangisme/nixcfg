@@ -35,6 +35,11 @@
           };
         };
       };
+      keys = {
+        normal = {
+          "D" = "kill_to_line_end";
+        };
+      };
     };
     languages = {
       language-server = {
