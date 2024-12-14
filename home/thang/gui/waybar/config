@@ -6,8 +6,8 @@
   "passthrough": false,
   "gtk-layer-shell": true,
   "height": 40,
-  "modules-left": ["hyprland/workspaces"],
-  "modules-center": ["hyprland/window", "mpris"],
+  "modules-left": ["hyprland/workspaces", "niri/workspaces"],
+  "modules-center": ["hyprland/window", "niri/window", "mpris"],
   "modules-right": [
     "clock",
     "battery",
@@ -61,6 +61,30 @@
     },
     "all-outputs": true,
     "on-click": "activate"
+  },
+
+  "niri/workspaces": {
+	"format": "{icon}",
+	"format-icons": {
+		// Named workspaces
+		// (you need to configure them in niri)
+		"main": "",
+        "music": "",
+        "email": "",
+        "code": "",
+
+		// Icons by state
+		"active": "~",
+		"default": "#"
+	}
+  },
+
+  "niri/window": {
+	"format": "{}",
+	"rewrite": {
+      "(.*) — Mozilla Firefox": "󰈹  $1",
+      "": "#.#"
+  	}
   },
 
   "tray": {
@@ -236,3 +260,4 @@
     "escape": true
   }
 }
+

@@ -26,9 +26,8 @@ tooltip {
 }
 
 #workspaces button {
-  padding: 5px;
+  padding: 5px 2px;
   color: #cdd6f4;
-  margin-right: 5px;
 }
 
 #workspaces button.active {
@@ -37,22 +36,19 @@ tooltip {
 }
 
 #workspaces button.focused {
-  color: #707880;
-  background: #eba0ac;
-  border-radius: 3px;
+  color: #11111b;
+  background: #b4befe;
 }
 
 #workspaces button.urgent {
   color: #11111b;
   background: #f28fad;
-  border-radius: 3px;
   opacity: 0.5;
 }
 
 #workspaces button:hover {
-  background: #11111b;
-  color: #cdd6f4;
-  border-radius: 17px;
+  background: #cba6f7;
+  color: #181825;
 }
 
 /* #custom-power_profile, */
