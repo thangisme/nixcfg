@@ -74,6 +74,7 @@
     onlyoffice-bin
     ffmpeg
     yt-dlp
+    steam-run
   ];
 
   # Fish
@@ -108,7 +109,7 @@
   programs.adb.enable = true;
   services.tailscale.enable = true;
   services.flatpak.enable = true;
-  services.cloudflare-warp.enable = true;
+  # services.cloudflare-warp.enable = true;
 
   programs.fuse.userAllowOther = true;
   systemd.services.onr2-mount = {
@@ -126,7 +127,10 @@
 
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 8080 ];
+    allowedTCPPorts = [
+      8080
+      23170
+    ];
   };
 
   services.mysql = {

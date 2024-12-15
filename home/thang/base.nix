@@ -30,6 +30,8 @@
     zed-editor
     obs-studio
     masterpdfeditor4
+    aider-chat
+    prismlauncher
   ];
 
   home.sessionVariables = {
