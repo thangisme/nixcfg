@@ -125,12 +125,18 @@
     wantedBy = [ "multi-user.target" ];
   };
 
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [
-      8080
-      23170
-    ];
+  networking = {
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [
+        8080
+        23170
+      ];
+      allowedUDPPorts = [
+        8080
+        23170
+      ];
+    };
   };
 
   services.mysql = {
