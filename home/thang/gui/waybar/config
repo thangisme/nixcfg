@@ -13,7 +13,7 @@
     "battery",
     "group/more",
     "tray",
-    "custom/notification",
+    // "custom/notification",
     "custom/power"
   ],
   "group/more": {

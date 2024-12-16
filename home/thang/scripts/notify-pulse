@@ -1,0 +1,74 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+step=5
+
+case "${1:-}" in
+    up)
+        wpctl set-volume @DEFAULT_AUDIO_SINK@ "${step}%+"
+        ;;
+    down)
+        wpctl set-volume @DEFAULT_AUDIO_SINK@ "${step}%-"
+        ;;
+    mute)
+        wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+        ;;
+    mute-mic)
+        wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+        ;;
+    *)
+        exit 1
+        ;;
+esac
+
+# Get volume and mute status for the speaker
+volume_info=$(wpctl get-volume @DEFAULT_AUDIO_SINK@)
+vol=$(echo "${volume_info}" | awk '{print int($2 * 100)}')
+is_muted=$(echo "${volume_info}" | grep -o '\[MUTED\]' || echo "UNMUTED")
+
+# Ensure volume is capped at 100
+vol=$((vol > 100 ? 100 : vol))
+
+# Initialize the volume variable for speaker
+if [ "${is_muted}" = "[MUTED]" ]; then
+    volume="muted"
+    icon="audio-volume-muted-symbolic"
+elif (( vol == 0 )); then
+    volume="muted"
+    icon="audio-volume-muted-symbolic"
+elif (( vol <= 30 )); then
+    volume="${vol}%"
+    icon="audio-volume-low-symbolic"
+elif (( vol <= 70 )); then
+    volume="${vol}%"
+    icon="audio-volume-medium-symbolic"
+else
+    volume="${vol}%"
+    icon="audio-volume-high-symbolic"
+fi
+
+# Send speaker notification
+notify-send \
+    "${volume}" \
+    -i "${icon}" \
+    -h int:value:"${vol}" \
+    -h string:x-dunst-stack-tag:volume
+
+# Get mute status for microphone
+mic_info=$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@)
+mic_muted=$(echo "${mic_info}" | grep -o '\[MUTED\]' || echo "UNMUTED")
+
+# Send microphone notification if mute-mic was triggered
+if [[ "${1:-}" == "mute-mic" ]]; then
+    mic_status="unmuted"
+    mic_icon="microphone-sensitivity-high-symbolic"
+    if [ "${mic_muted}" = "[MUTED]" ]; then
+        mic_status="muted"
+        mic_icon="microphone-sensitivity-muted-symbolic"
+    fi
+    notify-send \
+        "Microphone ${mic_status}" \
+        -i "${mic_icon}" \
+        -h string:x-dunst-stack-tag:mic
+fi
+

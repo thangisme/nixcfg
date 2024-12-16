@@ -7,8 +7,9 @@
     ./hyprland/base.nix
     ./waybar/base.nix
     ./rofi/base.nix
-    ./swaync/base.nix
+    # ./swaync/base.nix
     ./catppuccin.nix
     # ./ags/base.nix
+    ./mako.nix
   ];
 }

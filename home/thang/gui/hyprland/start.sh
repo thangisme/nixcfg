@@ -9,7 +9,7 @@ nm-applet --indicator &
 waybar &
 
 # Notification
-swaync -c /home/thang/.config/swaync/config.json &
+# swaync -c /home/thang/.config/swaync/config.json &
 
 # Clipboard
 wl-paste --watch cliphist store &

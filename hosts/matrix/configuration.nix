@@ -26,7 +26,7 @@
 
   };
   security.pam.services.sddm.enableGnomeKeyring = true;
-  services.displayManager.defaultSession = "hyprland";
+  # services.displayManager.defaultSession = "hyprland";
 
   # XDG Portal
   xdg.portal = {
@@ -41,7 +41,6 @@
   services.logind = {
     lidSwitch = "suspend-then-hibernate";
     extraConfig = ''
-      HandlePowerKey=suspend-then-hibernate
       IdleAction=suspend-then-hibernate
       IdleActionSec=2m
       # don’t shutdown when power button is short-pressed
@@ -56,6 +55,8 @@
   };
 
   system.stateVersion = "23.11";
+
+  environment.localBinInPath = true;
 
   environment.systemPackages = with pkgs; [
     zoxide

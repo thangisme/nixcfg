@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
   home.packages = with pkgs; [
-    swaynotificationcenter
+    # swaynotificationcenter
     libnotify
     swww
     rofi-wayland

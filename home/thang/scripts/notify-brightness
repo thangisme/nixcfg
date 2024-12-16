@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Define the brightness adjustment step (in percentage)
+step=5
+
+case "${1:-}" in
+    up)
+        brightnessctl set +"${step}%"
+        ;;
+    down)
+        brightnessctl set "${step}%-"
+        ;;
+    *)
+        exit 1
+        ;;
+esac
+
+# Get the current and maximum brightness values
+current_brightness=$(brightnessctl get)
+max_brightness=$(brightnessctl max)
+
+# Avoid division by zero by ensuring max_brightness is valid
+if [ "${max_brightness}" -eq 0 ]; then
+    echo "Error: Max brightness value is 0. Exiting."
+    exit 1
+fi
+
+# Calculate brightness percentage
+brightness=$((current_brightness * 100 / max_brightness))
+
+# Determine appropriate icon based on brightness level
+if (( brightness == 0 )); then
+    icon="display-brightness-off-symbolic"
+elif (( brightness <= 30 )); then
+    icon="display-brightness-low-symbolic"
+elif (( brightness <= 70 )); then
+    icon="display-brightness-medium-symbolic"
+else
+    icon="display-brightness-high-symbolic"
+fi
+
+# Send notification
+notify-send \
+    "Brightness: ${brightness}%" \
+    -i "${icon}" \
+    -h int:value:"${brightness}" \
+    -h string:x-dunst-stack-tag:brightness
+

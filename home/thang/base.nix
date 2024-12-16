@@ -8,6 +8,7 @@
   imports = [
     ./programs/base.nix
     ./gui/base.nix
+    ./scripts/base.nix
   ];
 
   nixpkgs.config.allowUnfreePredicate = (_: true);
