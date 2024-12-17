@@ -10,6 +10,7 @@
     # ./swaync/base.nix
     ./catppuccin.nix
     # ./ags/base.nix
+    ./niri/base.nix
     ./mako.nix
   ];
 }

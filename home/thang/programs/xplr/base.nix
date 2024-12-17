@@ -10,7 +10,7 @@
     #   pane_frames = false;
     # };
   };
-  home.file.".config/zellij/" = {
+  home.file.".config/xplr/" = {
     source = ./.;
     recursive = true;
   };

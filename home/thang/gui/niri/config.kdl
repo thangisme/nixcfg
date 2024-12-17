@@ -215,7 +215,7 @@ layout {
 // See the binds section below for more spawn examples.
 spawn-at-startup "waybar"
 spawn-at-startup "swww-daemon"
-spawn-at-startup "sh" "-c" "wl-paste --watch cliphist store"
+spawn-at-startup "sh" "-c" "wl-paste --watch cliphist store -max-items 15"
 spawn-at-startup "swayosd-server"
 spawn-at-startup "batsignal"
 spawn-at-startup "hypridle"

@@ -33,6 +33,7 @@
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
+  xdg.autostart.enable = lib.mkForce false;
 
   # Polkit
   security.polkit.enable = true;
@@ -68,9 +69,11 @@
     btop
     mpv
     zathura
-    feh
+    imv
     cava
     bat
+    fzf
+    pistol
     lazygit
     onlyoffice-bin
     ffmpeg
