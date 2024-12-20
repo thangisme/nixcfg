@@ -4,19 +4,11 @@
   ...
 }:
 let
+  potatofox = builtins.fetchTarball {
+    url = "https://codeberg.org/awwpotato/potatofox/archive/56df7fd6ecba5981f39a94f7628a19cc22839a68.tar.gz";
+    sha256 = "13vnzrjxmlq656iw83dndadp502808f595wqpmm30987dglb781m";
+  };
 in
-# shyfox = pkgs.fetchFromGitHub {
-#   owner = "Naezr";
-#   repo = "ShyFox";
-#   rev = "bd41f885f19771b12e23c522ccaafe33af59a1c7";
-#   hash = "sha256-w4kaOjz51FYYS58TrPVI/OgZ8At9mbPXj2G3X/N7Lu8=";
-# };
-# cascade = pkgs.fetchFromGitHub {
-#   owner = "cascadefox";
-#   repo = "cascade";
-#   rev = "8fbe98934fa58f934f7ed5253367396519b320a4";
-#   hash = "sha256-GMXSpNaShNu/Bce6TTnlgzGHV8MhHRVICv8hJqMi70w=";
-# };
 {
   programs.firefox = {
     enable = true;
@@ -27,12 +19,10 @@ in
         "general.autoScroll" = true;
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
       };
-      # extraConfig = builtins.readFile "${shyfox}/user.js";
+      extraConfig = builtins.readFile "${potatofox}/user.js";
     };
   };
 
-  # home.file.".mozilla/firefox/${config.programs.firefox.profiles.thang.path}/chrome/".source =
-  #   "${cascade}/chrome/";
-  # home.file.".mozilla/firefox/${config.programs.firefox.profiles.thang.path}/chrome/includes/cascade-colours.css".text =
-  #   "";
+  home.file.".mozilla/firefox/${config.programs.firefox.profiles.thang.path}/chrome/".source =
+    "${potatofox}/chrome/";
 }
