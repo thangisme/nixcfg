@@ -6,17 +6,36 @@
       set fish_greeting; 
       nix-your-shell fish | source; 
       zoxide init fish | source
+      set fzf_directory_opts --bind \"alt-o:execute($EDITOR {} &> /dev/tty)\"
     ";
     catppuccin.enable = true;
+    functions = {
+      mkcd = {
+        body = ''
+          mkdir -p $argv[1]; and cd $argv[1]
+        '';
+      };
+    };
     plugins = [
       {
         name = "tide";
-        src = pkgs.fetchFromGitHub {
-          owner = "IlanCosman";
-          repo = "tide";
-          rev = "a34b0c2809f665e854d6813dd4b052c1b32a32b4";
-          sha256 = "sha256-ZyEk/WoxdX5Fr2kXRERQS1U1QHH3oVSyBQvlwYnEYyc=";
-        };
+        src = pkgs.fishPlugins.tide.src;
+      }
+      {
+        name = "fzf.fish";
+        src = pkgs.fishPlugins.fzf-fish.src;
+      }
+      {
+        name = "plugin-git";
+        src = pkgs.fishPlugins.plugin-git.src;
+      }
+      {
+        name = "sudope";
+        src = pkgs.fishPlugins.plugin-sudope.src;
+      }
+      {
+        name = "bd";
+        src = pkgs.fishPlugins.fish-bd.src;
       }
     ];
   };
