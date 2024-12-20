@@ -73,12 +73,15 @@
     cava
     bat
     fzf
+    fd
     pistol
     lazygit
     onlyoffice-bin
     ffmpeg
     yt-dlp
     steam-run
+    xwayland-satellite
+    kdePackages.kdeconnect-kde
   ];
 
   # Fish
@@ -147,4 +150,11 @@
     enable = true;
     package = pkgs.mariadb;
   };
+
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
+  nixpkgs.config.allowUnfree = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
+  virtualisation.virtualbox.guest.enable = true;
+  virtualisation.virtualbox.guest.dragAndDrop = true;
 }
