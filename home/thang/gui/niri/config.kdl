@@ -95,6 +95,10 @@ input {
     position x=1280 y=0
 }
 
+hotkey-overlay {
+    skip-at-startup
+}
+
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
