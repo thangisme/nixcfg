@@ -17,6 +17,7 @@
   home.homeDirectory = "/home/thang";
   xdg.enable = true;
   home.packages = with pkgs; [
+    awesome
     vscode
     anki-bin
     goldendict-ng
@@ -33,6 +34,7 @@
     masterpdfeditor4
     aider-chat
     prismlauncher
+    jetbrains-toolbox
   ];
 
   home.sessionVariables = {
