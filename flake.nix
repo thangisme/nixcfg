@@ -8,7 +8,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     catppuccin.url = "github:catppuccin/nix";
-
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # ags.url = "github:aylur/ags/v2";
   };
 
@@ -32,6 +35,7 @@
           ./modules/common.nix
           ./modules/common_non_server.nix
           ./hosts/matrix/configuration.nix
+          inputs.spicetify-nix.nixosModules.default
           inputs.catppuccin.nixosModules.catppuccin
         ];
       };
@@ -46,6 +50,7 @@
         modules = [
           # inputs.ags.homeManagerModules.default
           inputs.catppuccin.homeManagerModules.catppuccin
+          inputs.spicetify-nix.homeManagerModules.default
           ./home/thang/base.nix
         ];
       };
