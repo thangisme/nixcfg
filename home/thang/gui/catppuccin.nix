@@ -1,8 +1,9 @@
-{ config, ... }: {
+{ config, ... }:
+{
   catppuccin = {
     flavor = "mocha";
     accent = "lavender";
-    pointerCursor = {
+    cursors = {
       enable = true;
       accent = "lavender";
       flavor = "mocha";

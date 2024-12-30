@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   gtk = {
     enable = true;
     theme = {
@@ -8,12 +9,12 @@
         accents = [ "lavender" ];
       };
     };
-    catppuccin = {
-      icon = {
-        enable = true;
-        accent = "lavender";
-        flavor = "mocha";
-      };
+  };
+  catppuccin.gtk = {
+    icon = {
+      enable = true;
+      accent = "lavender";
+      flavor = "mocha";
     };
   };
 }

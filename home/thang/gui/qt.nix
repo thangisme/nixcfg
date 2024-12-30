@@ -1,15 +1,10 @@
-{ config, ... }: {
+{ config, ... }:
+{
   qt = {
     enable = true;
-    platformTheme.name = "kvantum";
+    platformTheme.name = "kde";
     style = {
-      name = "kvantum";
-      catppuccin = {
-        enable = true;
-        accent = "lavender";
-        flavor = "mocha";
-        apply = true;
-      };
+      name = "breeze";
     };
   };
 }

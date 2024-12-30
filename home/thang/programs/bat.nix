@@ -1,6 +1,7 @@
-{ config, ... }: {
+{ config, ... }:
+{
   programs.bat = {
     enable = true;
-    catppuccin.enable = true;
   };
+  catppuccin.bat.enable = true;
 }

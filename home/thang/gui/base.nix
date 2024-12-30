@@ -2,7 +2,7 @@
 {
   imports = [
     ./gtk.nix
-    ./qt.nix
+    # ./qt.nix
     ./prefer-dark.nix
     ./hyprland/base.nix
     ./waybar/base.nix

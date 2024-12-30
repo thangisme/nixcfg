@@ -8,7 +8,6 @@
       zoxide init fish | source
       set fzf_directory_opts --bind \"alt-o:execute($EDITOR {} &> /dev/tty)\"
     ";
-    catppuccin.enable = true;
     functions = {
       mkcd = {
         body = ''
@@ -39,4 +38,5 @@
       }
     ];
   };
+  catppuccin.fish.enable = true;
 }

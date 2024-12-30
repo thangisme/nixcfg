@@ -37,7 +37,7 @@
   "custom/power": {
     "format": "",
     "tooltip": false,
-    "on-click": "wlogout"
+    "on-click": "power-menu"
   },
   "hyprland/window": {
     "format": "{}",
@@ -83,7 +83,7 @@
 	"format": "{}",
 	"rewrite": {
       "(.*) — Mozilla Firefox": "󰈹  $1",
-      "": "#.#"
+      " ": "#.#"
   	}
   },
 

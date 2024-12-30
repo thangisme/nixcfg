@@ -1,6 +1,7 @@
-{ config, ... }: {
+{ config, ... }:
+{
   programs.btop = {
     enable = true;
-    catppuccin.enable = true;
   };
+  catppuccin.btop.enable = true;
 }
