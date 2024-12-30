@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+echoerr() {
+    echo "$@" 1>&2
+}
+usage() {
+    echoerr "Usage: $0 [ <action> ]"
+}
+
+if [ $# -lt 1 ]; then
+    # qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.shortcutNames
+    # but using busctl.
+    busctl -j --user call org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component shortcutNames \
+        | jq -r '.data[0].[]'  | grep -e '^karousel-' | sed 's/^karousel-//' | sed 's/[0-9]\+$//' | sort | uniq
+    exit 0
+fi
+
+set -euo pipefail
+action="$1"
+
+busctl --user call org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component invokeShortcut "s" "karousel-$action"

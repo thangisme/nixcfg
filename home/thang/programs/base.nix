@@ -13,5 +13,6 @@
     ./firefox.nix
     ./direnv.nix
     ./zellij/base.nix
+    ./touchegg.nix
   ];
 }
