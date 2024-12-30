@@ -19,7 +19,7 @@
   home.packages = with pkgs; [
     awesome
     vscode
-    anki-bin
+    anki
     goldendict-ng
     stremio
     qbittorrent
@@ -41,6 +41,8 @@
     EDITOR = "hx";
     VISUAL = "hx";
   };
+
+  services.kdeconnect.enable = true;
 
   home.stateVersion = "23.11";
 
