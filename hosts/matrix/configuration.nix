@@ -5,7 +5,10 @@
   ...
 }:
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    ../../modules/wireguard.nix
+  ];
 
   boot.loader.systemd-boot.windows = {
     "11".efiDeviceHandle = "HD0b";
@@ -14,19 +17,23 @@
   networking.hostName = "matrix";
 
   # Desktop Environment.
-  services.xserver = {
-    enable = true;
-
-    displayManager.gdm = {
+  services.displayManager = {
+    sddm = {
       enable = true;
-      wayland = true;
+      wayland = {
+        enable = true;
+        compositor = "kwin";
+      };
     };
-
-    excludePackages = with pkgs; [ xterm ];
-
   };
-  security.pam.services.sddm.enableGnomeKeyring = true;
+
+  # security.pam.services.sddm.enableGnomeKeyring = true;
   # services.displayManager.defaultSession = "hyprland";
+
+  services.desktopManager.plasma6 = {
+    enable = true;
+    # enableQt5Integration = false;
+  };
 
   # XDG Portal
   xdg.portal = {
@@ -41,12 +48,8 @@
 
   services.logind = {
     lidSwitch = "suspend-then-hibernate";
-    extraConfig = ''
-      IdleAction=suspend-then-hibernate
-      IdleActionSec=2m
-      # don’t shutdown when power button is short-pressed
-      HandlePowerKey=ignore
-    '';
+    powerKey = "ignore";
+    hibernateKey = "ignore";
   };
   systemd.sleep.extraConfig = "HibernateDelaySec=2h";
 
@@ -82,6 +85,10 @@
     steam-run
     xwayland-satellite
     kdePackages.kdeconnect-kde
+    kdePackages.kmail-account-wizard
+    kdePackages.kmail
+    kdePackages.merkuro
+    kdePackages.koi
   ];
 
   # Fish
@@ -133,28 +140,34 @@
   };
 
   networking = {
-    firewall = {
+    firewall = rec {
       enable = true;
       allowedTCPPorts = [
         8080
         23170
       ];
-      allowedUDPPorts = [
-        8080
-        23170
+      allowedUDPPorts = allowedTCPPorts;
+      allowedTCPPortRanges = [
+        {
+          from = 1714;
+          to = 1764;
+        }
       ];
+      allowedUDPPortRanges = allowedTCPPortRanges;
     };
   };
 
-  services.mysql = {
-    enable = true;
-    package = pkgs.mariadb;
-  };
+  # services.mysql = {
+  #   enable = true;
+  #   package = pkgs.mariadb;
+  # };
 
-  virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
-  nixpkgs.config.allowUnfree = true;
-  virtualisation.virtualbox.host.enableExtensionPack = true;
-  virtualisation.virtualbox.guest.enable = true;
-  virtualisation.virtualbox.guest.dragAndDrop = true;
+  # virtualisation.virtualbox.host.enable = true;
+  # users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
+  # nixpkgs.config.allowUnfree = true;
+  # virtualisation.virtualbox.host.enableExtensionPack = true;
+  # virtualisation.virtualbox.guest.enable = true;
+  # virtualisation.virtualbox.guest.dragAndDrop = true;
+
+  services.touchegg.enable = true;
 }

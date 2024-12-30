@@ -63,4 +63,9 @@
       "wheel"
     ];
   };
+
+  imports = [
+    ./agenix.nix
+    ./dns.nix
+  ];
 }

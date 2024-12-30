@@ -12,6 +12,7 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    agenix.url = "github:ryantm/agenix";
     # ags.url = "github:aylur/ags/v2";
   };
 
@@ -35,6 +36,7 @@
           ./modules/common.nix
           ./modules/common_non_server.nix
           ./hosts/matrix/configuration.nix
+          inputs.agenix.nixosModules.default
           inputs.spicetify-nix.nixosModules.default
           inputs.catppuccin.nixosModules.catppuccin
         ];
