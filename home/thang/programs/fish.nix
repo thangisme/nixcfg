@@ -25,16 +25,8 @@
         src = pkgs.fishPlugins.fzf-fish.src;
       }
       {
-        name = "plugin-git";
-        src = pkgs.fishPlugins.plugin-git.src;
-      }
-      {
         name = "sudope";
         src = pkgs.fishPlugins.plugin-sudope.src;
-      }
-      {
-        name = "bd";
-        src = pkgs.fishPlugins.fish-bd.src;
       }
     ];
   };
