@@ -5,8 +5,8 @@
 }:
 let
   potatofox = builtins.fetchTarball {
-    url = "https://codeberg.org/awwpotato/potatofox/archive/56df7fd6ecba5981f39a94f7628a19cc22839a68.tar.gz";
-    sha256 = "13vnzrjxmlq656iw83dndadp502808f595wqpmm30987dglb781m";
+    url = "https://codeberg.org/awwpotato/potatofox/archive/0949d70379611242b43f67eb8e67d5279ff369f4.tar.gz";
+    sha256 = "1bjfilx704clhbi8rkln1crx5xb58ycvgpl7ajkdqzvd988sgxww";
   };
 in
 {
