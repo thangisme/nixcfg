@@ -35,6 +35,7 @@
     aider-chat
     prismlauncher
     jetbrains-toolbox
+    qutebrowser
   ];
 
   home.sessionVariables = {
