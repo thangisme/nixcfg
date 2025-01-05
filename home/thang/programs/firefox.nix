@@ -17,9 +17,19 @@ in
         "apz.overscroll.enabled" = true;
         "browser.aboutConfig.showWarning" = false;
         "general.autoScroll" = true;
+        "general.smoothScroll" = true;
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+        "widget.use-xdg-desktop-portal.file-picker" = 1;
+        "svg.context-properties.content.enabled" = true;
+        "layout.css.has-selector.enabled" = true;
+        "browser.urlbar.suggest.calculator" = true;
+        "browser.urlbar.trimHttps" = true;
+        "browser.urlbar.trimURLs" = true;
+        "widget.gtk.rounded-bottom-corners.enabled" = true;
+        "browser.compactmode.show" = true;
+        "widget.gtk.ignore-bogus-leave-notify" = 1;
       };
-      extraConfig = builtins.readFile "${potatofox}/user.js";
+      # extraConfig = builtins.readFile "${potatofox}/user.js";
     };
   };
 
