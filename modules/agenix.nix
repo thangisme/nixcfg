@@ -1,8 +1,14 @@
-{ inputs, ... }:
 {
-  environment.systemPackages = [ inputs.agenix.packages.x86_64-linux.default ];
+  inputs,
+  system,
+  ...
+}:
+{
+  environment.systemPackages = [
+    inputs.agenix.packages.${system}.default
+  ];
 
-  age.identityPaths = [ "/home/thang/.ssh/id_ed25519" ];
+  age.identityPaths = [ "/var/key/agenix" ];
 
   age.secrets = {
     warp_priv_key = {

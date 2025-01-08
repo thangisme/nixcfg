@@ -13,7 +13,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     agenix.url = "github:ryantm/agenix";
-    # ags.url = "github:aylur/ags/v2";
   };
 
   outputs =
@@ -30,7 +29,7 @@
       nixosConfigurations.matrix = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
-          inherit inputs;
+          inherit inputs system;
         };
         modules = [
           ./modules/common.nix
@@ -46,7 +45,7 @@
         pkgs = import nixpkgs { inherit system; };
 
         extraSpecialArgs = {
-          inherit inputs;
+          inherit inputs system;
         };
 
         modules = [
