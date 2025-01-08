@@ -3,4 +3,6 @@ let
 in
 {
   "warp_priv_key.age".publicKeys = [ thang ];
+  "vaultwarden_env.age".publicKeys = [ thang ];
+  "openwebui_env.age".publicKeys = [ thang ];
 }

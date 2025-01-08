@@ -41,6 +41,18 @@
         ];
       };
 
+      nixosConfigurations.windy= nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = {
+          inherit inputs system;
+        };
+        modules = [
+          ./modules/common.nix
+          ./hosts/windy/configuration.nix
+          inputs.agenix.nixosModules.default
+        ];
+      };
+
       homeConfigurations."thang@matrix" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs { inherit system; };
 
