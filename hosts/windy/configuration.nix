@@ -65,12 +65,6 @@
 
   services.caddy = {
     enable = true;
-    virtualHosts."vault.thangqt.com".extraConfig = ''
-      tls internal
-      reverse_proxy http://127.0.0.1:9182 {
-        header_up X-Real-IP {http.request.header.Cf-Connecting-Ip}
-      }
-    '';
     virtualHosts."search.thangqt.com".extraConfig = ''
       tls internal
       reverse_proxy http://127.0.0.1:5326
@@ -79,18 +73,6 @@
       tls internal
       reverse_proxy http://127.0.0.1:2855
     '';
-  };
-
-  services.vaultwarden = {
-    enable = true;
-    dbBackend = "sqlite";
-    backupDir = "/var/backup/vaultwarden";
-    environmentFile = config.age.secrets.vaultwarden_env.path;
-    config = {
-      ROCKET_ADDRESS = "127.0.0.1";
-      ROCKET_PORT = 9182;
-      DOMAIN = "https://vault.thangqt.com";
-    };
   };
 
   services.whoogle-search = {
