@@ -52,6 +52,18 @@
           inputs.agenix.nixosModules.default
         ];
       };
+      
+      nixosConfigurations.seed = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = {
+          inherit inputs system;
+        };
+        modules = [
+          ./modules/common.nix
+          ./hosts/seed/configuration.nix
+          inputs.agenix.nixosModules.default
+        ];
+      };
 
       homeConfigurations."thang@matrix" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs { inherit system; };
