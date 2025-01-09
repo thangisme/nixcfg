@@ -14,9 +14,17 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernel.sysctl."kernel.sysrq" = 1;
   boot.loader.efi.efiSysMountPoint = "/efi";
-  boot.kernelParams = [ "console=ttyS0,115200n8" "console=tty0" ];
+  boot.kernelParams = [
+    "console=ttyS0,115200n8"
+    "console=tty0"
+  ];
 
   networking.hostName = "windy";
+  networking.nameservers = [
+    "2a01:4f8:c2c:123f::1"
+    "2a00:1098:2b::1"
+    "2a00:1098:2c::1"
+  ];
 
   services.openssh = {
     enable = true;
@@ -34,7 +42,9 @@
   # Default shell
   users.users.thang = {
     shell = pkgs.fish;
-    openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHZ7KokkDS4XU9M15R3htHbt4ZJ9NQeYxVbKWinbE3n5" ];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHZ7KokkDS4XU9M15R3htHbt4ZJ9NQeYxVbKWinbE3n5"
+    ];
   };
 
   system.stateVersion = "24.11";
@@ -57,7 +67,7 @@
       allowedUDPPorts = allowedTCPPorts;
     };
   };
-  
+
   services.tailscale.enable = true;
 
   security.acme.defaults.email = "thang@thang.com";
