@@ -64,9 +64,19 @@
 
   system.stateVersion = "23.11";
 
+  hardware.graphics.extraPackages = with pkgs; [
+    amdvlk
+  ];
+  hardware.graphics.extraPackages32 = with pkgs; [
+    driversi686Linux.amdvlk
+  ];
+
+  systemd.packages = with pkgs; [ lact ];
+  systemd.services.lactd.wantedBy = [ "multi-user.target" ];
   environment.localBinInPath = true;
 
   environment.systemPackages = with pkgs; [
+    lact
     zoxide
     ungoogled-chromium
     xplr
