@@ -4,10 +4,6 @@
   ...
 }:
 {
-  environment.systemPackages = [
-    inputs.agenix.packages.${system}.default
-  ];
-
   age.identityPaths = [ "/var/key/agenix" ];
 
   age.secrets = {

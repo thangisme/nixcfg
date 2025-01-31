@@ -2,7 +2,8 @@
   description = "ThangQT's NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -15,21 +16,16 @@
     agenix.url = "github:ryantm/agenix";
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      home-manager,
-      ...
-    }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs:
     let
-      system = "x86_64-linux";
+      # Default system set to x86_64-linux
+      defaultSystem = "x86_64-linux";
     in
     {
-      nixosConfigurations.matrix = nixpkgs.lib.nixosSystem {
-        inherit system;
+      nixosConfigurations.matrix = nixpkgs-unstable.lib.nixosSystem {
+        system = defaultSystem;
         specialArgs = {
-          inherit inputs system;
+          inherit inputs;
         };
         modules = [
           ./modules/common.nix
@@ -38,42 +34,54 @@
           inputs.agenix.nixosModules.default
           inputs.spicetify-nix.nixosModules.default
           inputs.catppuccin.nixosModules.catppuccin
+          {
+            environment.systemPackages = [
+              inputs.agenix.packages.${defaultSystem}.default
+            ];
+          }
         ];
       };
 
-      nixosConfigurations.windy= nixpkgs.lib.nixosSystem {
-        inherit system;
+      nixosConfigurations.satellite = nixpkgs-unstable.lib.nixosSystem {
+        system = "aarch64-linux";
         specialArgs = {
-          inherit inputs system;
+          inherit inputs;
         };
         modules = [
           ./modules/common.nix
-          ./hosts/windy/configuration.nix
+          ./hosts/satellite/configuration.nix
           inputs.agenix.nixosModules.default
+          {
+            environment.systemPackages = [
+              inputs.agenix.packages."aarch64-linux".default
+            ];
+          }
         ];
       };
-      
+
       nixosConfigurations.seed = nixpkgs.lib.nixosSystem {
-        inherit system;
+        system = defaultSystem;
         specialArgs = {
-          inherit inputs system;
+          inherit inputs;
         };
         modules = [
           ./modules/common.nix
           ./hosts/seed/configuration.nix
           inputs.agenix.nixosModules.default
+          {
+            environment.systemPackages = [
+              inputs.agenix.packages.${defaultSystem}.default
+            ];
+          }
         ];
       };
 
       homeConfigurations."thang@matrix" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs { inherit system; };
-
+        pkgs = import nixpkgs-unstable { inherit defaultSystem; };
         extraSpecialArgs = {
-          inherit inputs system;
+          inherit inputs;
         };
-
         modules = [
-          # inputs.ags.homeManagerModules.default
           inputs.catppuccin.homeManagerModules.catppuccin
           inputs.spicetify-nix.homeManagerModules.default
           ./home/thang/base.nix
