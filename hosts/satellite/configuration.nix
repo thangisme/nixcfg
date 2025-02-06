@@ -13,6 +13,8 @@
     stateVersion = "24.11";
   };
 
+  boot.tmp.cleanOnBoot = true;
+  
   networking = {
     hostName = "satellite";
     firewall = rec {
@@ -26,6 +28,33 @@
       allowedUDPPorts = allowedTCPPorts;
     };
   };
+
+  nixpkgs.overlays = [
+    (final: prev: {
+      pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
+        (
+          _: python-prev: {
+            rapidocr-onnxruntime = python-prev.rapidocr-onnxruntime.overridePythonAttrs (self: {
+              pythonImportsCheck = if python-prev.stdenv.isLinux && python-prev.stdenv.isAarch64 then [] else ["rapidocr_onnxruntime"];
+              doCheck = !(python-prev.stdenv.isLinux && python-prev.stdenv.isAarch64);
+              meta = self.meta // { badPlatforms = []; broken = false; };
+            });
+
+            chromadb = python-prev.chromadb.overridePythonAttrs (self: {
+              pythonImportsCheck = if python-prev.stdenv.isLinux && python-prev.stdenv.isAarch64 then [] else ["chromadb"];
+              doCheck = !(python-prev.stdenv.isLinux && python-prev.stdenv.isAarch64);
+              meta = self.meta // { broken = false; };
+            });
+
+            langchain-chroma = python-prev.langchain-chroma.overridePythonAttrs (_: {
+              pythonImportsCheck = if python-prev.stdenv.isLinux && python-prev.stdenv.isAarch64 then [] else ["langchain_chroma"];
+              doCheck = !(python-prev.stdenv.isLinux && python-prev.stdenv.isAarch64);
+            });
+          }
+        )
+      ];
+    })
+  ];
 
   services = {
     openssh = {
@@ -59,16 +88,18 @@
         '';
       };
     };
-    # open-webui = {
-    #   enable = true;
-    #   port = 2855;
-    #   environmentFile = config.age.secrets.openwebui_env.path;
-    # };
+
+    open-webui = {
+      enable = true;
+      port = 2855;
+      environmentFile = config.age.secrets.openwebui_env.path;
+    };
 
     glance = {
       enable = true;
       settings = {
         server.port = 9943;
+        branding.hide-footer = true;
         pages = [
           {
             name = "Home";
@@ -79,6 +110,16 @@
                   {
                     type = "clock";
                     "hour-format" = "24h";
+                  }
+                  {
+                    type = "extension";
+                    url = "https://canvasqt.quangthang.workers.dev/";
+                    "allow-potentially-dangerous-html" = true;
+                    parameters = {
+                      canvasURL = "https://portal.uet.vnu.edu.vn/";
+                      limit = 5;
+                      highlightDays = 3;
+                    };
                   }
                 ];
               }
@@ -95,33 +136,28 @@
                       {
                         links = [
                           {
-                            title = "Example";
-                            url = "example.com";
+                            title = "UET Portal";
+                            url = "https://portal.uet.vnu.edu.vn/";
                           }
                           {
-                            title = "Example";
-                            url = "example.com";
-                          }
-                          {
-                            title = "Example";
-                            url = "example.com";
+                            title = "Điểm báo - VOZ";
+                            url = "https://voz.vn/f/%C4%90iem-bao.33/";
                           }
                         ];
                       }
                       {
-                        title = "Another";
                         links = [
                           {
-                            title = "Example";
-                            url = "example.com";
+                            title = "Open WebUI";
+                            url = "https://llm.thangqt.com";
                           }
                           {
-                            title = "Example";
-                            url = "example.com";
+                            title = "O'Reilly";
+                            url = "https://login.sjezp01.sjlibrary.org/login?url=https://www.oreilly.com/library-access/";
                           }
                           {
-                            title = "Example";
-                            url = "example.com";
+                            title = "CSES";
+                            url = "https://cses.fi/problemset/list/";
                           }
                         ];
                       }
@@ -175,7 +211,7 @@
                     type = "videos";
                     style = "grid-cards";
                     limit = 10;
-                    collapse-after-rows = 6;
+                    collapse-after-rows = 3;
                     channels = [
                       "UCcaTUtGzOiS4cqrgtcsHYWg" # jvscholz
                       "UCn1XB-jvmd9fXMzhiA6IR0w" # Domics
@@ -195,60 +231,18 @@
                 size = "full";
                 widgets = [
                   {
-                    type = "group";
-                    title = "News";
-                    widgets = [
+                    type = "hacker-news";
+                    limit = 15;
+                    "collapse-after" = 5;
+                  }
+                  {
+                    type = "rss";
+                    title = "Webdev & Design";
+                    limit = 15;
+                    feeds = [
                       {
-                        type = "rss";
-                        title = "General News";
-                        limit = 5;
-                        feeds = [
-                          {
-                            url = "https://www.economist.com/feeds/print-sections/77/science-and-technology.xml";
-                            title = "Economist";
-                          }
-                          {
-                            url = "https://www.theguardian.com/world/rss";
-                            title = "The Guardian";
-                          }
-                        ];
-                      }
-                      {
-                        type = "rss";
-                        title = "Tech News";
-                        limit = 5;
-                        feeds = [
-                          {
-                            url = "https://www.techradar.com/rss";
-                            title = "TechRadar";
-                          }
-                          {
-                            url = "https://www.wired.com/feed/rss";
-                            title = "Wired";
-                          }
-                        ];
-                      }
-                      {
-                        type = "rss";
-                        title = "OSS News";
-                        limit = 5;
-                        feeds = [
-                          {
-                            url = "https://opensource.com/feed";
-                            title = "OpenSource.com";
-                          }
-                        ];
-                      }
-                      {
-                        type = "rss";
-                        title = "Voz";
-                        limit = 5;
-                        feeds = [
-                          {
-                            url = "https://voz.vn/f/%C4%90iem-bao.33/index.rss";
-                            title = "Điểm báo - Voz";
-                          }
-                        ];
+                        url = "https://tympanus.net/codrops/feed/";
+                        title = "Codrops";
                       }
                     ];
                   }
@@ -258,20 +252,10 @@
                 size = "small";
                 widgets = [
                   {
-                    type = "group";
-                    widgets = [
-                      {
-                        type = "hacker-news";
-                        limit = 15;
-                        "collapse-after" = 5;
-                      }
-                      {
-                        type = "lobsters";
-                        limit = 15;
-                        "collapse-after" = 5;
-                        "sort-by" = "hot";
-                      }
-                    ];
+                    type = "lobsters";
+                    limit = 15;
+                    "collapse-after" = 5;
+                    "sort-by" = "hot";
                   }
                 ];
               }
@@ -314,4 +298,5 @@
 
   programs.fish.enable = true;
 }
+
 
