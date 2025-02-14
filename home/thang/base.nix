@@ -17,14 +17,13 @@
   home.homeDirectory = "/home/thang";
   xdg.enable = true;
   home.packages = with pkgs; [
-    awesome
+    kde-rounded-corners
     vscode
     anki
     goldendict-ng
     stremio
     qbittorrent
     nix-your-shell
-    bitwarden
     calibre
     blueman
     pavucontrol
@@ -35,6 +34,7 @@
     aider-chat
     prismlauncher
     jetbrains-toolbox
+    jetbrains.ruby-mine
     qutebrowser
   ];
 

@@ -13,7 +13,6 @@ in
   programs.spicetify = {
     enable = true;
     theme = spicePkgs.themes.catppuccin;
-    spicetifyPackage = pkgs.spicetify-cli;
     colorScheme = "mocha";
 
     enabledExtensions = with spicePkgs.extensions; [

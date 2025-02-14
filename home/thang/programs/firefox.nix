@@ -28,11 +28,14 @@ in
         "widget.gtk.rounded-bottom-corners.enabled" = true;
         "browser.compactmode.show" = true;
         "widget.gtk.ignore-bogus-leave-notify" = 1;
+        "browser.formfill.enable" = false;
+        "sidebar.revamp" = true;
+        "sidebar.verticalTabs" = true;
       };
       # extraConfig = builtins.readFile "${potatofox}/user.js";
     };
   };
 
-  home.file.".mozilla/firefox/${config.programs.firefox.profiles.thang.path}/chrome/".source =
-    "${potatofox}/chrome/";
+  # home.file.".mozilla/firefox/${config.programs.firefox.profiles.thang.path}/chrome/".source =
+  #   "${potatofox}/chrome/";
 }

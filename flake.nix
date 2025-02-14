@@ -16,7 +16,14 @@
     agenix.url = "github:ryantm/agenix";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixpkgs-unstable,
+      home-manager,
+      ...
+    }@inputs:
     let
       # Default system set to x86_64-linux
       defaultSystem = "x86_64-linux";
@@ -59,6 +66,23 @@
         ];
       };
 
+      nixosConfigurations.chalkboard = nixpkgs-unstable.lib.nixosSystem {
+        system = "aarch64-linux";
+        specialArgs = {
+          inherit inputs;
+        };
+        modules = [
+          ./modules/common.nix
+          ./hosts/chalkboard/configuration.nix
+          inputs.agenix.nixosModules.default
+          {
+            environment.systemPackages = [
+              inputs.agenix.packages."aarch64-linux".default
+            ];
+          }
+        ];
+      };
+
       nixosConfigurations.seed = nixpkgs.lib.nixosSystem {
         system = defaultSystem;
         specialArgs = {
@@ -77,7 +101,7 @@
       };
 
       homeConfigurations."thang@matrix" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs-unstable { inherit defaultSystem; };
+        pkgs = import nixpkgs-unstable { system = defaultSystem; };
         extraSpecialArgs = {
           inherit inputs;
         };

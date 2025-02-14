@@ -49,7 +49,6 @@
 
   # Power management
   powerManagement.enable = true;
-  powerManagement.powertop.enable = true;
 
   # Fonts
   fonts.packages = with pkgs; [
