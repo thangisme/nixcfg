@@ -48,6 +48,26 @@
           }
         ];
       };
+      
+      nixosConfigurations.leaf = nixpkgs-unstable.lib.nixosSystem {
+        system = defaultSystem;
+        specialArgs = {
+          inherit inputs;
+        };
+        modules = [
+          ./modules/common.nix
+          ./modules/common_non_server.nix
+          ./hosts/leaf/configuration.nix
+          inputs.agenix.nixosModules.default
+          inputs.spicetify-nix.nixosModules.default
+          inputs.catppuccin.nixosModules.catppuccin
+          {
+            environment.systemPackages = [
+              inputs.agenix.packages.${defaultSystem}.default
+            ];
+          }
+        ];
+      };
 
       nixosConfigurations.satellite = nixpkgs-unstable.lib.nixosSystem {
         system = "aarch64-linux";
@@ -100,7 +120,7 @@
         ];
       };
 
-      homeConfigurations."thang@matrix" = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations."thang@leaf" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs-unstable { system = defaultSystem; };
         extraSpecialArgs = {
           inherit inputs;
@@ -108,7 +128,7 @@
         modules = [
           inputs.catppuccin.homeManagerModules.catppuccin
           inputs.spicetify-nix.homeManagerModules.default
-          ./home/thang/base.nix
+          ./hosts/leaf/home.nix
         ];
       };
     };
