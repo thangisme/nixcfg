@@ -47,6 +47,7 @@
     stremio
     wineWowPackages.stable
     lutris
+    onlyoffice-bin
   ];
 
   hardware.graphics.enable32Bit = true;
