@@ -34,10 +34,12 @@
     ../../modules/home/fish.nix
     ../../modules/home/helix.nix
     ../../modules/home/kitty.nix
+    ../../modules/home/zellij/base.nix
     ../../modules/home/wezterm.nix
     ../../modules/home/firefox.nix
     ../../modules/home/spicetify.nix
     ../../modules/home/mpv.nix
     ../../modules/home/gtk.nix
+    ../../modules/home/gnome.nix
   ];
 }
