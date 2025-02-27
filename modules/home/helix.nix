@@ -2,11 +2,18 @@
 {
   programs.helix = {
     enable = true;
+    themes = {
+      mocha_transparent = {
+        "inherits" = "catppuccin_mocha";
+        "ui.background" = { };
+      };
+    };
     settings = {
       theme = "catppuccin_mocha";
       editor = {
         line-number = "relative";
         color-modes = true;
+        true-color = true;
         cursorline = true;
         bufferline = "multiple";
         cursor-shape = {

@@ -30,5 +30,4 @@
       }
     ];
   };
-  catppuccin.fish.enable = true;
 }
