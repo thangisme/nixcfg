@@ -1,9 +1,14 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   wsl.enable = true;
   wsl.defaultUser = "thang";
-  
+
   networking.hostName = "leaf";
 
   users.users.thang = {
@@ -23,8 +28,15 @@
     uv
   ];
 
+  environment.localBinInPath = true;
+
   programs.fish.enable = true;
 
+  # For VSCode remote server to work
+  programs.nix-ld = {
+    enable = true;
+    package = pkgs.nix-ld-rs;
+
+  };
   system.stateVersion = "24.11";
 }
-
