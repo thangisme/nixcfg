@@ -11,6 +11,10 @@
   home.homeDirectory = "/home/thang";
   xdg.enable = true;
   home.packages = with pkgs; [
+    kde-rounded-corners
+    kdePackages.koi
+    kdePackages.karousel
+    python312Packages.kde-material-you-colors
     uv
     prismlauncher
     lazygit
@@ -21,6 +25,8 @@
     obsidian
     masterpdfeditor4
   ];
+
+  services.kdeconnect.enable = true;
 
   home.sessionVariables = {
     EDITOR = "hx";

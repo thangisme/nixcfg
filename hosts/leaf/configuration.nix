@@ -16,9 +16,17 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+  };
+  services.desktopManager.plasma6.enable = true;
+  environment.plasma6.excludePackages = with pkgs; [
+    xterm
+    kdePackages.elisa
+    kdePackages.plasma-browser-integration
+    kdePackages.discover
+  ];
 
   users.users.thang = {
     shell = pkgs.fish;
