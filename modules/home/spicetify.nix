@@ -12,7 +12,8 @@ in
 
   programs.spicetify = {
     enable = true;
-    theme = spicePkgs.themes.starryNight;
+    theme = spicePkgs.themes.catppuccin;
+    colorScheme = "mocha";
 
     enabledExtensions = with spicePkgs.extensions; [
       fullScreen
