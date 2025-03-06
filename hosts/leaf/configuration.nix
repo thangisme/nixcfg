@@ -43,7 +43,6 @@
     git
     wget
     zoxide
-    direnv
     nix-your-shell
     spotify
     fastfetch
@@ -63,6 +62,11 @@
   hardware.graphics.enable32Bit = true;
 
   programs.fish.enable = true;
+
+  programs.direnv = {
+    enable = true;
+    silent = true;
+  };
 
   programs.hyprland = {
     enable = true;
