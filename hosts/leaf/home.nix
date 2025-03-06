@@ -24,6 +24,7 @@
     qbittorrent
     obsidian
     masterpdfeditor4
+    ungoogled-chromium
   ];
 
   services.kdeconnect.enable = true;
