@@ -25,6 +25,7 @@
     obsidian
     masterpdfeditor4
     ungoogled-chromium
+    rclone
   ];
 
   services.kdeconnect.enable = true;
