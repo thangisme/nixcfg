@@ -4,6 +4,7 @@ mouse_mode true
 default_layout "compact"
 theme "catppuccin-mocha"
 default_shell "fish"
+show_startup_tips false
 
 keybinds clear-defaults=true {
     normal {
