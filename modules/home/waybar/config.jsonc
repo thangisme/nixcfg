@@ -1,0 +1,210 @@
+{
+  "layer": "top",
+  "position": "top",
+  "mod": "dock",
+  "exclusive": true,
+  "passthrough": false,
+  "gtk-layer-shell": true,
+  "height": 40,
+  "modules-left": [
+    "niri/workspaces"
+  ],
+  "modules-center": [
+    "niri/window",
+    "mpris"
+  ],
+  "modules-right": [
+    "clock",
+    "pulseaudio",
+    "battery",
+    "group/more",
+    "tray",
+    "custom/notification",
+    "group/powerctl"
+  ],
+  "group/more": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 500,
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "custom/more",
+      "network",
+      "bluetooth",
+      "backlight"
+    ]
+  },
+  "group/powerctl": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 500,
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "custom/powerctl",
+      "custom/suspend",
+      "custom/reboot",
+      "custom/poweroff",
+    ]
+  },
+  "custom/more": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/powerctl": {
+    "format": "⭘",
+    "tooltip": false
+  },
+  "custom/poweroff": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "systemctl poweroff"
+  },
+  "custom/reboot": {
+    "format": "󰑓",
+    "tooltip": false,
+    "on-click": "systemctl reboot"
+  },
+  "custom/suspend": {
+    "format": "󰤄",
+    "tooltip": false,
+    "on-click": "systemctl suspend"
+  },
+  "niri/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "general": "",
+      "music": "",
+      "email": "",
+      "code": "",
+    }
+  },
+  "niri/window": {
+    "format": "{}",
+    "rewrite": {
+      "(.*) — Mozilla Firefox": "󰈹  $1",
+      " ": "#.#"
+    }
+  },
+  "tray": {
+    "icon-size": 18,
+    "spacing": 10
+  },
+  "clock": {
+    "format": "  {:%H:%M }",
+    "format-alt": "  {:%a, %b %e }",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 20,
+      "critical": 10
+    },
+    "interval": 5,
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{time} {icon}",
+    "format-icons": [
+      " ",
+      " ",
+      " ",
+      " ",
+      " "
+    ]
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "tooltip": false,
+    "format-muted": " Muted",
+    "on-click": "pamixer -t",
+    "on-right-click": "exec pavucontrol",
+    "on-scroll-up": "pamixer -i 5",
+    "on-scroll-down": "pamixer -d 5",
+    "scroll-step": 5,
+    "format-icons": {
+      "headphone": " ",
+      "hands-free": " ",
+      "headset": " ",
+      "phone": " ",
+      "portable": " ",
+      "car": " ",
+      "default": [
+        " ",
+        " ",
+        " "
+      ]
+    }
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon} {percent}%",
+    "format-icons": [
+      " "
+    ],
+    "on-scroll-up": "brightnessctl set 1%+",
+    "on-scroll-down": "brightnessctl set 1%-",
+    "min-length": 6
+  },
+  "network": {
+    "format-wifi": "  {signalStrength}%",
+    "format-ethernet": "{ipaddr}/{cidr} ",
+    "tooltip-format": "{essid} - {ifname} via {gwaddr} ",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "Disconnected ⚠",
+    "format-alt": "{ifname}:{essid} {ipaddr}/{cidr}"
+  },
+  "bluetooth": {
+    "format": " {status}",
+    "format-disabled": "󰂲 {status}",
+    "format-connected": " {num_connections}",
+    "tooltip-format": "{device_alias}",
+    "tooltip-format-connected": " {device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}"
+  },
+  "mpris": {
+    "title-len": 28,
+    "interval": 1,
+    "album-len": 0,
+    "max-len": 60,
+    "format": "{player_icon} {artist} - {title}",
+    "format-paused": "{player_icon} {artist} - {title}",
+    "player-icons": {
+      "default": "▶",
+      "mpv": "🎵",
+      "spotify": " ",
+      "firefox": ""
+    },
+    "status-icons": {
+      "paused": ""
+    },
+    "ignored-players": [
+      "vlc",
+      "firefox",
+      "brave",
+      "vivaldi"
+    ]
+  },
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='red'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  }
+}
