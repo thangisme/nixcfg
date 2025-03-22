@@ -41,7 +41,7 @@ window {
 inputbar {
   spacing  : 8px;
   padding  : 4px 8px;
-  children : [ icon-search, entry ];
+  children : [ entry ];
 
   background-color: @bg0;
 }
