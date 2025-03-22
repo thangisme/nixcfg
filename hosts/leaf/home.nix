@@ -55,5 +55,6 @@
     ../../modules/home/waybar/base.nix
     ../../modules/home/rofi/base.nix
     ../../modules/home/swaync/base.nix
+    ../../modules/home/zathura/base.nix
   ];
 }
