@@ -9,7 +9,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    catppuccin.url = "github:catppuccin/nix";
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -41,7 +40,6 @@
           ./hosts/matrix/configuration.nix
           inputs.agenix.nixosModules.default
           inputs.spicetify-nix.nixosModules.default
-          inputs.catppuccin.nixosModules.catppuccin
           {
             environment.systemPackages = [
               inputs.agenix.packages.${defaultSystem}.default
@@ -49,7 +47,7 @@
           }
         ];
       };
-      
+
       nixosConfigurations.leaf = nixpkgs-unstable.lib.nixosSystem {
         system = defaultSystem;
         specialArgs = {
@@ -61,7 +59,6 @@
           ./hosts/leaf/configuration.nix
           inputs.agenix.nixosModules.default
           inputs.spicetify-nix.nixosModules.default
-          inputs.catppuccin.nixosModules.catppuccin
           {
             environment.systemPackages = [
               inputs.agenix.packages.${defaultSystem}.default
@@ -145,12 +142,11 @@
           inherit inputs;
         };
         modules = [
-          inputs.catppuccin.homeManagerModules.catppuccin
           inputs.spicetify-nix.homeManagerModules.default
           ./hosts/leaf/home.nix
         ];
       };
-      
+
       homeConfigurations."thang@jail" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs-unstable { system = defaultSystem; };
         extraSpecialArgs = {
