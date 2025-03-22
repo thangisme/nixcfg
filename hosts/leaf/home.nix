@@ -29,6 +29,7 @@
     batsignal
     cliphist
     wl-clipboard
+    imv
   ];
 
   services.kdeconnect.enable = true;

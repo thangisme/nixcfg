@@ -51,6 +51,7 @@
     mpv
     zathura
     fzf
+    fd
     ffmpeg
     yt-dlp
     stremio
