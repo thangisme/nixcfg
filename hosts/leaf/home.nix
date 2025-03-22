@@ -28,6 +28,7 @@
     swww
     batsignal
     cliphist
+    wl-clipboard
   ];
 
   services.kdeconnect.enable = true;
