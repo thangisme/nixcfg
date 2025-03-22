@@ -50,7 +50,7 @@
     ../../modules/home/spicetify.nix
     ../../modules/home/mpv.nix
     ../../modules/home/gtk.nix
-    ../../modules/home/gnome.nix
+    ../../modules/home/prefer-dark.nix
     ../../modules/home/niri/base.nix
     ../../modules/home/waybar/base.nix
     ../../modules/home/rofi/base.nix
