@@ -66,7 +66,7 @@ input {
 // Remember to uncomment the node by removing "/-"!
 output "eDP-1" {
     off
-
+    position x=0 y=0
     scale 2
 }
 output "HDMI-A-1" {
@@ -97,7 +97,7 @@ output "HDMI-A-1" {
     // so to put another output directly adjacent to it on the right, set its x to 1920.
     // If the position is unset or results in an overlap, the output is instead placed
     // automatically.
-    position x=1280 y=0
+    position x=1440 y=0
 }
 
 output "DP-1" {
@@ -128,7 +128,7 @@ output "DP-1" {
     // so to put another output directly adjacent to it on the right, set its x to 1920.
     // If the position is unset or results in an overlap, the output is instead placed
     // automatically.
-    position x=1280 y=0
+    position x=1440 y=0
 }
 
 // Settings that influence how windows are positioned and sized.
@@ -340,6 +340,10 @@ binds {
     Alt+Space { spawn "rofi" "-show" "drun" "-show-icons"; }
     Mod+V { spawn "sh" "-c" "cliphist list | rofi -dmenu -theme | cliphist decode | wl-copy"; }
     Super+Alt+L { spawn "swaylock"; }
+
+    // Built-in display control
+    Mod+P { spawn "niri" "msg" "output" "eDP-1" "on"; }
+    Mod+Ctrl+P { spawn "niri" "msg" "output" "eDP-1" "off"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.
