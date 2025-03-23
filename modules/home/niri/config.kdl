@@ -339,7 +339,7 @@ binds {
     Mod+B { spawn "firefox"; }
     Alt+Space { spawn "rofi" "-show" "drun" "-show-icons"; }
     Mod+V { spawn "sh" "-c" "cliphist list | rofi -dmenu -theme | cliphist decode | wl-copy"; }
-    Super+Alt+L { spawn "swaylock"; }
+    Mod+W { spawn "sh" "-c" "find /home/thang/Pictures/Wallpapers -type f \\( -name \"*.jpg\" -o -name \"*.jpeg\" -o -name \"*.png\" -o -name \"*.gif\" \\) | shuf -n 1 | xargs swww img"; }
 
     // Built-in display control
     Mod+P { spawn "niri" "msg" "output" "eDP-1" "on"; }
