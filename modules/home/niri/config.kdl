@@ -569,7 +569,12 @@ window-rule {
     match app-id="spotify"
     open-on-workspace "music"
     open-floating true
-    opacity 0.85
+}
+
+window-rule {
+    match app-id="Cider"
+    open-on-workspace "music"
+    open-floating true
 }
 
 window-rule {
