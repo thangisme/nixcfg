@@ -32,6 +32,7 @@
 
   users.users.thang = {
     shell = pkgs.fish;
+    extraGroups = [ "adbusers" ];
   };
 
   # Install firefox.
@@ -90,6 +91,8 @@
   };
 
   services.syncthing.enable = true;
+
+  programs.adb.enable = true;
 
   system.stateVersion = "24.11";
 }
