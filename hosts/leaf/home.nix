@@ -30,6 +30,8 @@
     cliphist
     wl-clipboard
     imv
+    xfce.thunar
+    calibre
   ];
 
   services.kdeconnect.enable = true;
