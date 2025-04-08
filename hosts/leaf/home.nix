@@ -32,6 +32,7 @@
     imv
     xfce.thunar
     calibre
+    super-productivity
   ];
 
   services.kdeconnect.enable = true;
