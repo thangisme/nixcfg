@@ -9,6 +9,7 @@
     ./hardware-configuration.nix
     ../../modules/services/glance.nix
     ../../modules/services/openwebui.nix
+    (import ../../modules/agenix.nix { hostName = "satellite"; })
   ];
 
   boot.loader.grub.device = "/dev/sda";
@@ -18,7 +19,7 @@
   };
 
   boot.tmp.cleanOnBoot = true;
-  
+
   networking = {
     hostName = "satellite";
     firewall = rec {
@@ -99,5 +100,3 @@
 
   programs.fish.enable = true;
 }
-
-

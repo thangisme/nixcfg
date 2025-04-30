@@ -1,18 +1,32 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    (import ../../modules/agenix.nix { hostName = "seed"; })
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/efi";
-  swapDevices = [{ device = "/swapfile"; size = 2 * 1024; }];
-  boot.kernelParams = [ "console=ttyS0,115200n8" "console=tty0" ];
-  
+  swapDevices = [
+    {
+      device = "/swapfile";
+      size = 2 * 1024;
+    }
+  ];
+  boot.kernelParams = [
+    "console=ttyS0,115200n8"
+    "console=tty0"
+  ];
+
   networking.hostName = "seed";
 
   services.openssh = {
@@ -31,7 +45,9 @@
   # Default shell
   users.users.thang = {
     shell = pkgs.fish;
-    openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHZ7KokkDS4XU9M15R3htHbt4ZJ9NQeYxVbKWinbE3n5" ];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHZ7KokkDS4XU9M15R3htHbt4ZJ9NQeYxVbKWinbE3n5"
+    ];
   };
 
   system.stateVersion = "24.11";
@@ -54,7 +70,7 @@
       allowedUDPPorts = allowedTCPPorts;
     };
   };
-  
+
   services.tailscale.enable = true;
 
   security.acme.defaults.email = "thang@thang.com";

@@ -56,7 +56,6 @@
   };
 
   imports = [
-    ./agenix.nix
     ./dns.nix
   ];
 }
