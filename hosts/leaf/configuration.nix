@@ -13,6 +13,30 @@
   boot.loader.systemd-boot.edk2-uefi-shell.enable = true;
   boot.loader.systemd-boot.windows."11".efiDeviceHandle = "HD0b";
 
+  boot = {
+    plymouth = {
+      enable = true;
+      theme = "hexagon_dots";
+      themePackages = with pkgs; [
+        (adi1090x-plymouth-themes.override {
+          selected_themes = [ "hexagon_dots" ];
+        })
+      ];
+    };
+
+    # Enable "Silent boot"
+    consoleLogLevel = 3;
+    initrd.verbose = false;
+    kernelParams = [
+      "quiet"
+      "splash"
+      "boot.shell_on_fail"
+      "udev.log_priority=3"
+      "rd.systemd.show_status=auto"
+    ];
+    loader.timeout = 0;
+  };
+
   networking.hostName = "leaf";
 
   time.hardwareClockInLocalTime = true;
