@@ -34,12 +34,12 @@
       "udev.log_priority=3"
       "rd.systemd.show_status=auto"
     ];
-    loader.timeout = 0;
+    loader.timeout = 3;
   };
 
   networking.hostName = "leaf";
 
-  time.hardwareClockInLocalTime = true;
+  # time.hardwareClockInLocalTime = true;
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
