@@ -66,6 +66,8 @@
     kdePackages.discover
   ];
 
+  security.polkit.enable = true;
+
   users.users.thang = {
     shell = pkgs.fish;
     extraGroups = [ "adbusers" ];
