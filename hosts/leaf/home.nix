@@ -12,6 +12,7 @@
   xdg.enable = true;
   home.packages = with pkgs; [
     kde-rounded-corners
+    obs-studio
     kdePackages.karousel
     python312Packages.kde-material-you-colors
     uv

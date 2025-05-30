@@ -39,6 +39,16 @@
 
   networking.hostName = "leaf";
 
+  networking.firewall = rec {
+    allowedTCPPortRanges = [
+      {
+        from = 1714;
+        to = 1764;
+      }
+    ]; # KDE Connect
+    allowedUDPPortRanges = allowedTCPPortRanges;
+  };
+
   # time.hardwareClockInLocalTime = true;
 
   # Enable the X11 windowing system.
